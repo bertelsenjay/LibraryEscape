@@ -22,6 +22,13 @@ public class PlayerPickupDrop : MonoBehaviour
                         
                     }*/
                 }
+                else if (raycastHit.transform.TryGetComponent(out ObjectReadable objectReadable))
+                {
+                    /*switch (objectReadable.name)
+                    {
+
+                    }*/
+                }
             }
         }
     }
