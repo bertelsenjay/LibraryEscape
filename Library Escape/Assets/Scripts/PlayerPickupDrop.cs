@@ -16,8 +16,11 @@ public class PlayerPickupDrop : MonoBehaviour
             {
                 if (raycastHit.transform.TryGetComponent(out ObjectGrabbable objectGrabbable))
                 {
-                    Debug.Log(objectGrabbable);
                     Destroy(objectGrabbable.gameObject);
+                    /*switch(objectGrabbable.name)
+                    {
+                        
+                    }*/
                 }
             }
         }
