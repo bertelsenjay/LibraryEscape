@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PlayerPickupDrop : MonoBehaviour
 {
+    [SerializeField] private Transform playerCameraTransform;
+    [SerializeField] private LayerMask pickupLayerMask;
+    public float pickupDistance = 2.0f;
     // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickupDistance, pickupLayerMask))
+            {
+                if (raycastHit.transform.TryGetComponent(out ObjectGrabbable objectGrabbable))
+                {
+                    Debug.Log(objectGrabbable);
+                    Destroy(objectGrabbable.gameObject);
+                }
+            }
+        }
     }
 }
