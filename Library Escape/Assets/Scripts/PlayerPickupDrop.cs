@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerPickupDrop : MonoBehaviour
 {
@@ -16,14 +17,23 @@ public class PlayerPickupDrop : MonoBehaviour
             {
                 if (raycastHit.transform.TryGetComponent(out ObjectGrabbable objectGrabbable))
                 {
-                    Destroy(objectGrabbable.gameObject);
-                    /*switch(objectGrabbable.name)
+                    
+                    if (objectGrabbable.name == "Door")
                     {
+                        KeypadCanvas.keypadEnabled = true;
                         
-                    }*/
+                    }
+                    if (objectGrabbable.name == "Key")
+                    {
+                        Destroy(objectGrabbable.gameObject);
+                    }
                 }
                 else if (raycastHit.transform.TryGetComponent(out ObjectReadable objectReadable))
                 {
+                    if (objectReadable.name == "Book")
+                    {
+                        BookUI.isBook = true; 
+                    }
                     /*switch (objectReadable.name)
                     {
 
