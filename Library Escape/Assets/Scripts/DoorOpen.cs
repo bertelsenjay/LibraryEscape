@@ -24,5 +24,9 @@ public class DoorOpen : MonoBehaviour
         {
             Destroy(Door);
         }
+        if (totalCorrect >= 5)
+        {
+            //Give Completion Bonus
+        }
     }
 }
