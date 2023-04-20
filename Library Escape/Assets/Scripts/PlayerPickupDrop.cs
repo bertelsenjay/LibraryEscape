@@ -23,7 +23,20 @@ public class PlayerPickupDrop : MonoBehaviour
                         KeypadCanvas.keypadEnabled = true;
                         
                     }
-                    if (objectGrabbable.name == "Key")
+                    else if (objectGrabbable.name == "Key")
+                    {
+                        Destroy(objectGrabbable.gameObject);
+                    }
+
+                    else if (objectGrabbable.name == "Statue1")
+                    {
+                        Destroy(objectGrabbable.gameObject);
+                    }
+                    else if (objectGrabbable.name == "Statue2")
+                    {
+                        Destroy(objectGrabbable.gameObject);
+                    }
+                    else if (objectGrabbable.name == "Statue3")
                     {
                         Destroy(objectGrabbable.gameObject);
                     }
@@ -39,7 +52,23 @@ public class PlayerPickupDrop : MonoBehaviour
 
                     }*/
                 }
+                else if (raycastHit.transform.TryGetComponent(out ObjectPlaceable objectPlaceable))
+                {
+                    if (objectPlaceable.name == "PressurePlate1")
+                    {
+                        Debug.Log("1 Placed");
+                    }
+                    else if (objectPlaceable.name == "PressurePlate2")
+                    {
+                        Debug.Log("2 Placed");
+                    }
+                    else if (objectPlaceable.name == "PressurePlate3")
+                    {
+                        Debug.Log("3 Placed");
+                    }
+                }
             }
+            
         }
     }
 }
