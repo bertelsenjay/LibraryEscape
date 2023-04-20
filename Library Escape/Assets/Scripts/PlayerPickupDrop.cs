@@ -14,6 +14,7 @@ public class PlayerPickupDrop : MonoBehaviour
     public Transform plate1;
     public Transform plate2;
     public Transform plate3;
+    public Transform extraPlate;
     // Start is called before the first frame update
     private void Update()
     {
@@ -34,7 +35,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         Destroy(objectGrabbable.gameObject);
                     }
 
-                    else if (objectGrabbable.name == "Statue1" || objectGrabbable.name == "Statue1(Clone)")
+                    else if (objectGrabbable.name == "Statue1" || objectGrabbable.name == "Statue1(Clone)" && StatuePuzzle.puzzleComplete == false)
                     {
                         if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueThree == false)
                         {
@@ -43,7 +44,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         }
                         
                     }
-                    else if (objectGrabbable.name == "Statue2" || objectGrabbable.name == "Statue2(Clone)")
+                    else if (objectGrabbable.name == "Statue2" || objectGrabbable.name == "Statue2(Clone)" && StatuePuzzle.puzzleComplete == false)
                     {
                         if (StatuePuzzle.isHoldingStatueOne == false && StatuePuzzle.isHoldingStatueThree == false)
                         {
@@ -51,7 +52,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueTwo = true;
                         }
                     }
-                    else if (objectGrabbable.name == "Statue3" || objectGrabbable.name == "Statue3(Clone)")
+                    else if (objectGrabbable.name == "Statue3" || objectGrabbable.name == "Statue3(Clone)" && StatuePuzzle.puzzleComplete == false)
                     {
                         if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueOne == false)
                         {
@@ -73,61 +74,89 @@ public class PlayerPickupDrop : MonoBehaviour
                 }
                 else if (raycastHit.transform.TryGetComponent(out ObjectPlaceable objectPlaceable))
                 {
-                    if (objectPlaceable.name == "PressurePlate1")
+                    if (objectPlaceable.name == "PressurePlate1" && StatuePuzzle.puzzleComplete == false)
                     {
                         Debug.Log("1 Placed");
                         if (StatuePuzzle.isHoldingStatueOne == true)
                         {
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate1.position, Quaternion.identity);
+                            StatuePuzzle.statueOnFirst = 1;
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate1.position, Quaternion.identity);
+                            StatuePuzzle.statueOnFirst = 2;
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate1.position, Quaternion.identity);
+                            StatuePuzzle.statueOnFirst = 3;
                         }
                     }
-                    else if (objectPlaceable.name == "PressurePlate2")
+                    else if (objectPlaceable.name == "PressurePlate2" && StatuePuzzle.puzzleComplete == false)
                     {
                         Debug.Log("2 Placed");
                         if (StatuePuzzle.isHoldingStatueOne == true)
                         {
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate2.position, Quaternion.identity);
+                            StatuePuzzle.statueOnSecond = 1;
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate2.position, Quaternion.identity);
+                            StatuePuzzle.statueOnSecond = 2;
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate2.position, Quaternion.identity);
+                            StatuePuzzle.statueOnSecond = 3;
                         }
                     }
-                    else if (objectPlaceable.name == "PressurePlate3")
+                    else if (objectPlaceable.name == "PressurePlate3" && StatuePuzzle.puzzleComplete == false)
                     {
                         Debug.Log("3 Placed");
                         if (StatuePuzzle.isHoldingStatueOne == true)
                         {
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate3.position, Quaternion.identity);
+                            StatuePuzzle.statueOnThird = 1;
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate3.position, Quaternion.identity);
+                            StatuePuzzle.statueOnThird = 2;
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate3.position, Quaternion.identity);
+                            StatuePuzzle.statueOnThird = 3;
+                        }
+                    }
+                    else if (objectPlaceable.name == "ExtraPlate")
+                    {
+                        Debug.Log("3 Placed");
+                        if (StatuePuzzle.isHoldingStatueOne == true)
+                        {
+                            StatuePuzzle.isHoldingStatueOne = false;
+                            Instantiate(statue1, extraPlate.position, Quaternion.identity);
+                        }
+                        else if (StatuePuzzle.isHoldingStatueTwo == true)
+                        {
+                            StatuePuzzle.isHoldingStatueTwo = false;
+                            Instantiate(statue2, extraPlate.position, Quaternion.identity);
+                        }
+                        else if (StatuePuzzle.isHoldingStatueThree == true)
+                        {
+                            StatuePuzzle.isHoldingStatueThree = false;
+                            Instantiate(statue3, extraPlate.position, Quaternion.identity);
                         }
                     }
                 }

@@ -7,15 +7,20 @@ public class StatuePuzzle : MonoBehaviour
     public static bool isHoldingStatueOne = false;
     public static bool isHoldingStatueTwo = false;
     public static bool isHoldingStatueThree = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    public static int statueOnFirst;
+    public static int statueOnSecond;
+    public static int statueOnThird;
+
+    public static bool puzzleComplete = false;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (statueOnFirst == 2 && statueOnSecond == 3 && statueOnThird == 1 && puzzleComplete == false)
+        {
+            Debug.Log("Puzzle Completed");
+            puzzleComplete = true;
+        }
     }
 }
