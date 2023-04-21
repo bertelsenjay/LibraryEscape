@@ -10,9 +10,9 @@ public class LockedText : MonoBehaviour
     public TextMeshProUGUI keyText;
 
     public static bool enableText;
-    public static bool bronzeLock = true;
-    public static bool silverLock = true;
-    public static bool goldLock = true;
+    public static bool bronzeLock = false;
+    public static bool silverLock = false;
+    public static bool goldLock = false;
     bool hasPlayed = false;
     //bool hasAdded = false;
     // Start is called before the first frame update
@@ -31,6 +31,7 @@ public class LockedText : MonoBehaviour
             {
                 
             }*/
+            bronzeLock = false; 
             keyText.text = "Locked, need bronze key";
             //hasAdded = true;
             Invoke("DisableText", 1.5f);
@@ -43,6 +44,7 @@ public class LockedText : MonoBehaviour
             keyText.text = "Opened!";
             hasPlayed = true;
             Invoke("DisableText", 1.5f);
+            bronzeLock = false;
         }
         else if (enableText && silverLock && Keys.silverKey == false && hasPlayed == false)
         {
@@ -55,6 +57,7 @@ public class LockedText : MonoBehaviour
             //hasAdded = true;
             Invoke("DisableText", 1.5f);
             hasPlayed = true;
+            silverLock = false;
         }
         else if (enableText && silverLock && Keys.silverKey == true && hasPlayed == false)
         {
@@ -63,6 +66,7 @@ public class LockedText : MonoBehaviour
             keyText.text = "Opened!";
             hasPlayed = true;
             Invoke("DisableText", 1.5f);
+            silverLock = false; 
         }
         if (enableText && goldLock && Keys.goldKey == false && hasPlayed == false)
         {
@@ -75,6 +79,7 @@ public class LockedText : MonoBehaviour
             //hasAdded = true;
             Invoke("DisableText", 1.5f);
             hasPlayed = true;
+            goldLock = false;
         }
         else if (enableText && goldLock && Keys.goldKey == true && hasPlayed == false)
         {
@@ -83,6 +88,7 @@ public class LockedText : MonoBehaviour
             keyText.text = "Opened!";
             hasPlayed = true;
             Invoke("DisableText", 1.5f);
+            goldLock = false;
         }
     }
     public void DisableText()

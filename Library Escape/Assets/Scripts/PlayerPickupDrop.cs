@@ -95,6 +95,18 @@ public class PlayerPickupDrop : MonoBehaviour
                 else if (raycastHit.transform.TryGetComponent(out LockedObject lockedObject))
                 {
                     LockedText.enableText = true;
+                    if (lockedObject.name == "BronzeLocked")
+                    {
+                        LockedText.bronzeLock = true; 
+                    }
+                    else if (lockedObject.name == "SilverLocked")
+                    {
+                        LockedText.silverLock = true; 
+                    }
+                    else if (lockedObject.name == "GoldLocked")
+                    {
+                        LockedText.goldLock = true; 
+                    }
                     
                 }
                 else if (raycastHit.transform.TryGetComponent(out ObjectPlaceable objectPlaceable))
