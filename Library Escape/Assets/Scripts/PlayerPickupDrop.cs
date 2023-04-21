@@ -11,9 +11,11 @@ public class PlayerPickupDrop : MonoBehaviour
     public GameObject statue1;
     public GameObject statue2;
     public GameObject statue3;
+    public GameObject statue4;
     public Transform plate1;
     public Transform plate2;
     public Transform plate3;
+    public Transform plate4; 
     public Transform extraPlate;
     // Start is called before the first frame update
     private void Update()
@@ -37,7 +39,7 @@ public class PlayerPickupDrop : MonoBehaviour
 
                     else if (objectGrabbable.name == "Statue1" || objectGrabbable.name == "Statue1(Clone)" && StatuePuzzle.puzzleComplete == false)
                     {
-                        if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueThree == false)
+                        if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueThree == false && StatuePuzzle.isHoldingStatueFour == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueOne = true; 
@@ -46,7 +48,7 @@ public class PlayerPickupDrop : MonoBehaviour
                     }
                     else if (objectGrabbable.name == "Statue2" || objectGrabbable.name == "Statue2(Clone)" && StatuePuzzle.puzzleComplete == false)
                     {
-                        if (StatuePuzzle.isHoldingStatueOne == false && StatuePuzzle.isHoldingStatueThree == false)
+                        if (StatuePuzzle.isHoldingStatueOne == false && StatuePuzzle.isHoldingStatueThree == false && StatuePuzzle.isHoldingStatueFour == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueTwo = true;
@@ -54,10 +56,18 @@ public class PlayerPickupDrop : MonoBehaviour
                     }
                     else if (objectGrabbable.name == "Statue3" || objectGrabbable.name == "Statue3(Clone)" && StatuePuzzle.puzzleComplete == false)
                     {
-                        if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueOne == false)
+                        if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueOne == false && StatuePuzzle.isHoldingStatueFour == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueThree = true;
+                        }
+                    }
+                    else if (objectGrabbable.name == "Statue4" || objectGrabbable.name == "Statue4(Clone)" && StatuePuzzle.puzzleComplete == false)
+                    {
+                        if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueOne == false && StatuePuzzle.isHoldingStatueThree == false)
+                        {
+                            Destroy(objectGrabbable.gameObject);
+                            StatuePuzzle.isHoldingStatueFour = true;
                         }
                     }
                 }
@@ -95,6 +105,12 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue3, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 3;
                         }
+                        else if (StatuePuzzle.isHoldingStatueFour == true)
+                        {
+                            StatuePuzzle.isHoldingStatueFour = false;
+                            Instantiate(statue4, plate1.position, Quaternion.identity);
+                            StatuePuzzle.statueOnFirst = 4;
+                        }
                     }
                     else if (objectPlaceable.name == "PressurePlate2" && StatuePuzzle.puzzleComplete == false)
                     {
@@ -116,6 +132,12 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 3;
+                        }
+                        else if (StatuePuzzle.isHoldingStatueFour == true)
+                        {
+                            StatuePuzzle.isHoldingStatueFour = false;
+                            Instantiate(statue4, plate2.position, Quaternion.identity);
+                            StatuePuzzle.statueOnSecond = 4;
                         }
                     }
                     else if (objectPlaceable.name == "PressurePlate3" && StatuePuzzle.puzzleComplete == false)
@@ -139,6 +161,40 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue3, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 3;
                         }
+                        else if (StatuePuzzle.isHoldingStatueFour == true)
+                        {
+                            StatuePuzzle.isHoldingStatueFour = false;
+                            Instantiate(statue4, plate3.position, Quaternion.identity);
+                            StatuePuzzle.statueOnThird = 4;
+                        }
+                    }
+                    else if (objectPlaceable.name == "PressurePlate4" && StatuePuzzle.puzzleComplete == false)
+                    {
+                        Debug.Log("1 Placed");
+                        if (StatuePuzzle.isHoldingStatueOne == true)
+                        {
+                            StatuePuzzle.isHoldingStatueOne = false;
+                            Instantiate(statue1, plate4.position, Quaternion.identity);
+                            StatuePuzzle.statueOnFourth = 1;
+                        }
+                        else if (StatuePuzzle.isHoldingStatueTwo == true)
+                        {
+                            StatuePuzzle.isHoldingStatueTwo = false;
+                            Instantiate(statue2, plate4.position, Quaternion.identity);
+                            StatuePuzzle.statueOnFourth = 2;
+                        }
+                        else if (StatuePuzzle.isHoldingStatueThree == true)
+                        {
+                            StatuePuzzle.isHoldingStatueThree = false;
+                            Instantiate(statue3, plate4.position, Quaternion.identity);
+                            StatuePuzzle.statueOnFourth = 3;
+                        }
+                        else if (StatuePuzzle.isHoldingStatueFour == true)
+                        {
+                            StatuePuzzle.isHoldingStatueFour = false;
+                            Instantiate(statue4, plate4.position, Quaternion.identity);
+                            StatuePuzzle.statueOnFourth = 4; 
+                        }
                     }
                     else if (objectPlaceable.name == "ExtraPlate")
                     {
@@ -157,6 +213,11 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, extraPlate.position, Quaternion.identity);
+                        }
+                        else if (StatuePuzzle.isHoldingStatueFour == true)
+                        {
+                            StatuePuzzle.isHoldingStatueFour = false;
+                            Instantiate(statue4, extraPlate.position, Quaternion.identity);
                         }
                     }
                 }
