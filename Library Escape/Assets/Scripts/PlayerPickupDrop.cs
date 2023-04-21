@@ -32,11 +32,21 @@ public class PlayerPickupDrop : MonoBehaviour
                         KeypadCanvas.keypadEnabled = true;
                         
                     }
-                    else if (objectGrabbable.name == "Key")
+                    else if (objectGrabbable.name == "BronzeKey")
                     {
                         Destroy(objectGrabbable.gameObject);
+                        Keys.bronzeKey = true;
                     }
-
+                    else if (objectGrabbable.name == "SilverKey")
+                    {
+                        Destroy(objectGrabbable.gameObject);
+                        Keys.silverKey = true;
+                    }
+                    else if (objectGrabbable.name == "GoldKey")
+                    {
+                        Destroy(objectGrabbable.gameObject);
+                        Keys.goldKey = true;
+                    }
                     else if (objectGrabbable.name == "Statue1" || objectGrabbable.name == "Statue1(Clone)" && StatuePuzzle.puzzleComplete == false)
                     {
                         if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueThree == false && StatuePuzzle.isHoldingStatueFour == false)
@@ -81,6 +91,11 @@ public class PlayerPickupDrop : MonoBehaviour
                     {
 
                     }*/
+                }
+                else if (raycastHit.transform.TryGetComponent(out LockedObject lockedObject))
+                {
+                    LockedText.enableText = true;
+                    
                 }
                 else if (raycastHit.transform.TryGetComponent(out ObjectPlaceable objectPlaceable))
                 {
