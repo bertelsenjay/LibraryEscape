@@ -41,7 +41,8 @@ public class LockedText : MonoBehaviour
             // Open the drawer
             GetComponent<Canvas>().enabled = true;
             keyText.text = "Opened!";
-            hasPlayed = true; 
+            hasPlayed = true;
+            Invoke("DisableText", 1.5f);
         }
         else if (enableText && silverLock && Keys.silverKey == false && hasPlayed == false)
         {
@@ -61,6 +62,7 @@ public class LockedText : MonoBehaviour
             GetComponent<Canvas>().enabled = true;
             keyText.text = "Opened!";
             hasPlayed = true;
+            Invoke("DisableText", 1.5f);
         }
         if (enableText && goldLock && Keys.goldKey == false && hasPlayed == false)
         {
@@ -80,6 +82,7 @@ public class LockedText : MonoBehaviour
             GetComponent<Canvas>().enabled = true;
             keyText.text = "Opened!";
             hasPlayed = true;
+            Invoke("DisableText", 1.5f);
         }
     }
     public void DisableText()
