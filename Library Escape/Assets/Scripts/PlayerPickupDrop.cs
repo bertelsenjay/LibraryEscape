@@ -12,11 +12,24 @@ public class PlayerPickupDrop : MonoBehaviour
     public GameObject statue2;
     public GameObject statue3;
     public GameObject statue4;
+    public GameObject book1;
+    public GameObject book2;
+    public GameObject book3;
+    public GameObject book4;
+    public GameObject book5;
+    public GameObject book6;
+    public Transform book1Trans;
+    public Transform book2Trans;
+    public Transform book3Trans;
+    public Transform book4Trans;
+    public Transform book5Trans;
+    public Transform book6Trans;
     public Transform plate1;
     public Transform plate2;
     public Transform plate3;
     public Transform plate4; 
     public Transform extraPlate;
+    int booksPlaced = 0;
     // Start is called before the first frame update
     private void Update()
     {
@@ -78,6 +91,54 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueFour = true;
+                        }
+                    }
+                    else if (objectGrabbable.name == "Book1" || objectGrabbable.name == "Book1(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    {
+                        if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
+                        {
+                            Destroy(objectGrabbable.gameObject);
+                            BurningPuzzle.isHoldingBookOne = true;
+                        }
+                    }
+                    else if (objectGrabbable.name == "Book2" || objectGrabbable.name == "Book2(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    {
+                        if (BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
+                        {
+                            Destroy(objectGrabbable.gameObject);
+                            BurningPuzzle.isHoldingBookTwo = true;
+                        }
+                    }
+                    else if (objectGrabbable.name == "Book3" || objectGrabbable.name == "Book3(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    {
+                        if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
+                        {
+                            Destroy(objectGrabbable.gameObject);
+                            BurningPuzzle.isHoldingBookThree = true;
+                        }
+                    }
+                    else if (objectGrabbable.name == "Book4" || objectGrabbable.name == "Book4(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    {
+                        if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
+                        {
+                            Destroy(objectGrabbable.gameObject);
+                            BurningPuzzle.isHoldingBookFour = true;
+                        }
+                    }
+                    else if (objectGrabbable.name == "Book5" || objectGrabbable.name == "Book5(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    {
+                        if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookSix == false)
+                        {
+                            Destroy(objectGrabbable.gameObject);
+                            BurningPuzzle.isHoldingBookFive = true;
+                        }
+                    }
+                    else if (objectGrabbable.name == "Book6" || objectGrabbable.name == "Book6(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    {
+                        if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookOne == false)
+                        {
+                            Destroy(objectGrabbable.gameObject);
+                            BurningPuzzle.isHoldingBookSix = true;
                         }
                     }
                 }
@@ -247,6 +308,94 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue4, extraPlate.position, Quaternion.identity);
                         }
                     }
+                    
+          
+                    else if (objectPlaceable.name == "Fireplace")
+                    {
+                        
+                        if (booksPlaced < 3)
+                        {
+                            if(BurningPuzzle.isHoldingBookOne == true)
+                            {
+                                BurningPuzzle.isHoldingBookOne = false; 
+                                booksPlaced++;
+                                BurningPuzzle.isBookOnePlaced = true;
+                                Debug.Log("Successfully Burned1");
+                            }
+                            else if (BurningPuzzle.isHoldingBookTwo == true)
+                            {
+                                BurningPuzzle.isHoldingBookTwo = false;
+                                booksPlaced++;
+                                BurningPuzzle.isBookTwoPlaced = true;
+                                Debug.Log("Successfully Burned2");
+                            }
+                            else if (BurningPuzzle.isHoldingBookThree == true)
+                            {
+                                BurningPuzzle.isHoldingBookThree = false;
+                                booksPlaced++;
+                                BurningPuzzle.isBookThreePlaced = true;
+                                Debug.Log("Successfully Burned3");
+                            }
+                            else if (BurningPuzzle.isHoldingBookFour == true)
+                            {
+                                BurningPuzzle.isHoldingBookFour = false;
+                                booksPlaced++;
+                                BurningPuzzle.isBookFourPlaced = true;
+                                Debug.Log("Successfully Burned4");
+                            }
+                            else if (BurningPuzzle.isHoldingBookFive == true)
+                            {
+                                BurningPuzzle.isHoldingBookFive = false;
+                                booksPlaced++;
+                                BurningPuzzle.isBookFivePlaced = true;
+                                Debug.Log("Successfully Burned5");
+                            }
+                            else if (BurningPuzzle.isHoldingBookSix == true)
+                            {
+                                BurningPuzzle.isHoldingBookSix = false;
+                                booksPlaced++;
+                                BurningPuzzle.isBookSixPlaced = true;
+                                Debug.Log("Successfully Burned6");
+                            }
+                        }
+                        
+                    }
+                    if (booksPlaced >= 3)
+                    {
+                        //Checks if it is the correct books
+                        if (BurningPuzzle.isBookOnePlaced == true && BurningPuzzle.isBookTwoPlaced == true && BurningPuzzle.isBookThreePlaced == true)
+                        {
+                            Debug.Log("Puzzle Completed!");
+                            Destroy(book4);
+                            Destroy(book5);
+                            Destroy(book6);
+
+                        }
+                        else
+                        {
+                            booksPlaced = 0;
+                            BurningPuzzle.isBookOnePlaced = false;
+                            BurningPuzzle.isBookTwoPlaced = false;
+                            BurningPuzzle.isBookThreePlaced = false;
+                            BurningPuzzle.isBookFourPlaced = false;
+                            BurningPuzzle.isBookFivePlaced = false;
+                            BurningPuzzle.isBookSixPlaced = false;
+                            Destroy(book1);
+                            Destroy(book2);
+                            Destroy(book3);
+                            Destroy(book4);
+                            Destroy(book5);
+                            Destroy(book6);
+                            Instantiate(book1, book1Trans.position, Quaternion.identity);
+                            Instantiate(book2, book2Trans.position, Quaternion.identity);
+                            Instantiate(book3, book3Trans.position, Quaternion.identity);
+                            Instantiate(book4, book4Trans.position, Quaternion.identity);
+                            Instantiate(book5, book5Trans.position, Quaternion.identity);
+                            Instantiate(book6, book6Trans.position, Quaternion.identity);
+                        }
+                    }
+                    
+
                 }
             }
             
