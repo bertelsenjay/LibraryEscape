@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; 
 
 public class PlayerPickupDrop : MonoBehaviour
 {
@@ -12,12 +13,12 @@ public class PlayerPickupDrop : MonoBehaviour
     public GameObject statue2;
     public GameObject statue3;
     public GameObject statue4;
-    public GameObject book1;
-    public GameObject book2;
-    public GameObject book3;
-    public GameObject book4;
-    public GameObject book5;
-    public GameObject book6;
+    public GameObject bookBurn1;
+    public GameObject bookBurn2;
+    public GameObject bookBurn3;
+    public GameObject bookBurn4;
+    public GameObject bookBurn5;
+    public GameObject bookBurn6;
     public Transform book1Trans;
     public Transform book2Trans;
     public Transform book3Trans;
@@ -29,8 +30,23 @@ public class PlayerPickupDrop : MonoBehaviour
     public Transform plate3;
     public Transform plate4; 
     public Transform extraPlate;
+    public TextMeshProUGUI failText;
+    public Transform statue1ResetPos;
+    public Transform statue2ResetPos;
+    public Transform statue3ResetPos;
+    public Transform statue4ResetPos;
     int booksPlaced = 0;
+    public static bool statueFail; 
     // Start is called before the first frame update
+    private void Start()
+    {
+        Instantiate(bookBurn1, book1Trans.position, Quaternion.identity);
+        Instantiate(bookBurn2, book2Trans.position, Quaternion.identity);
+        Instantiate(bookBurn3, book3Trans.position, Quaternion.identity);
+        Instantiate(bookBurn4, book4Trans.position, Quaternion.identity);
+        Instantiate(bookBurn5, book5Trans.position, Quaternion.identity);
+        Instantiate(bookBurn6, book6Trans.position, Quaternion.identity);
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -310,7 +326,7 @@ public class PlayerPickupDrop : MonoBehaviour
                     }
                     
           
-                    else if (objectPlaceable.name == "Fireplace")
+                    else if (objectPlaceable.name == "Fireplace" && BurningPuzzle.puzzleComplete == false)
                     {
                         
                         if (booksPlaced < 3)
@@ -363,35 +379,20 @@ public class PlayerPickupDrop : MonoBehaviour
                     if (booksPlaced >= 3)
                     {
                         //Checks if it is the correct books
-                        if (BurningPuzzle.isBookOnePlaced == true && BurningPuzzle.isBookTwoPlaced == true && BurningPuzzle.isBookThreePlaced == true)
+                        if (BurningPuzzle.isBookOnePlaced == true && BurningPuzzle.isBookTwoPlaced == true && BurningPuzzle.isBookThreePlaced == true && BurningPuzzle.puzzleComplete == false)
                         {
                             Debug.Log("Puzzle Completed!");
-                            Destroy(book4);
-                            Destroy(book5);
-                            Destroy(book6);
+                            Destroy(bookBurn4);
+                            Destroy(bookBurn5);
+                            Destroy(bookBurn6);
+                            BurningPuzzle.puzzleComplete = true; 
 
                         }
                         else
                         {
-                            booksPlaced = 0;
-                            BurningPuzzle.isBookOnePlaced = false;
-                            BurningPuzzle.isBookTwoPlaced = false;
-                            BurningPuzzle.isBookThreePlaced = false;
-                            BurningPuzzle.isBookFourPlaced = false;
-                            BurningPuzzle.isBookFivePlaced = false;
-                            BurningPuzzle.isBookSixPlaced = false;
-                            Destroy(book1);
-                            Destroy(book2);
-                            Destroy(book3);
-                            Destroy(book4);
-                            Destroy(book5);
-                            Destroy(book6);
-                            Instantiate(book1, book1Trans.position, Quaternion.identity);
-                            Instantiate(book2, book2Trans.position, Quaternion.identity);
-                            Instantiate(book3, book3Trans.position, Quaternion.identity);
-                            Instantiate(book4, book4Trans.position, Quaternion.identity);
-                            Instantiate(book5, book5Trans.position, Quaternion.identity);
-                            Instantiate(book6, book6Trans.position, Quaternion.identity);
+                            FailCanvas.enabledCanvas = true; 
+                            Invoke("ResetBurnPuzzle", 15f);
+                            
                         }
                     }
                     
@@ -400,5 +401,41 @@ public class PlayerPickupDrop : MonoBehaviour
             }
             
         }
+        if (statueFail == true)
+        {
+            FailCanvas.enabledCanvas = true; 
+            Invoke("ResetStatuePuzzle", 15f);
+            statueFail = false;
+        }
+    }
+    void ResetBurnPuzzle()
+    {
+        booksPlaced = 0;
+        BurningPuzzle.isBookOnePlaced = false;
+        BurningPuzzle.isBookTwoPlaced = false;
+        BurningPuzzle.isBookThreePlaced = false;
+        BurningPuzzle.isBookFourPlaced = false;
+        BurningPuzzle.isBookFivePlaced = false;
+        BurningPuzzle.isBookSixPlaced = false;
+        Destroy(bookBurn1);
+        Destroy(bookBurn2);
+        Destroy(bookBurn3);
+        Destroy(bookBurn4);
+        Destroy(bookBurn5);
+        Destroy(bookBurn6);
+        Instantiate(bookBurn1, book1Trans.position, Quaternion.identity);
+        Instantiate(bookBurn2, book2Trans.position, Quaternion.identity);
+        Instantiate(bookBurn3, book3Trans.position, Quaternion.identity);
+        Instantiate(bookBurn4, book4Trans.position, Quaternion.identity);
+        Instantiate(bookBurn5, book5Trans.position, Quaternion.identity);
+        Instantiate(bookBurn6, book6Trans.position, Quaternion.identity);
+    }
+    void ResetStatuePuzzle()
+    {
+        statue1.transform.position = statue1ResetPos.transform.position;
+        statue2.transform.position = statue2ResetPos.transform.position;
+        statue3.transform.position = statue3ResetPos.transform.position;
+        statue4.transform.position = statue4ResetPos.transform.position;
+
     }
 }

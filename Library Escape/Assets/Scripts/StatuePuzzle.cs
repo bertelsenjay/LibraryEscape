@@ -9,6 +9,8 @@ public class StatuePuzzle : MonoBehaviour
     public static bool isHoldingStatueThree = false;
     public static bool isHoldingStatueFour = false;
 
+
+
     public static int statueOnFirst;
     public static int statueOnSecond;
     public static int statueOnThird;
@@ -18,10 +20,23 @@ public class StatuePuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (statueOnFirst == 2 && statueOnSecond == 3 && statueOnThird == 1 && puzzleComplete == false)
+        if(statueOnFirst != 0 && statueOnSecond != 0 && statueOnThird != 0 && statueOnFourth != 0)
         {
-            Debug.Log("Puzzle Completed");
-            puzzleComplete = true;
-        }*/
+            if (statueOnFirst == 2 && statueOnSecond == 3 && statueOnThird == 1 && statueOnFourth == 4 && puzzleComplete == false)
+            {
+                Debug.Log("Puzzle Completed");
+                puzzleComplete = true;
+            }
+            else
+            {
+                PlayerPickupDrop.statueFail = true; 
+            }
+        }
+        
+        
+    }
+    void ResetStatuePosition()
+    {
+
     }
 }
