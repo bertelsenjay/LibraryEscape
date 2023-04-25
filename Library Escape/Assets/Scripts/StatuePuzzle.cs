@@ -11,10 +11,10 @@ public class StatuePuzzle : MonoBehaviour
 
 
 
-    public static int statueOnFirst;
-    public static int statueOnSecond;
-    public static int statueOnThird;
-    public static int statueOnFourth;
+    public static int statueOnFirst = 0;
+    public static int statueOnSecond = 0;
+    public static int statueOnThird = 0;
+    public static int statueOnFourth = 0;
     public static bool puzzleComplete = false;
 
     // Update is called once per frame
@@ -29,7 +29,12 @@ public class StatuePuzzle : MonoBehaviour
             }
             else
             {
-                PlayerPickupDrop.statueFail = true; 
+                PlayerPickupDrop.statueFail = true;
+                statueOnFirst = 0;
+                statueOnSecond = 0;
+                statueOnThird = 0;
+                statueOnFourth = 0;
+
             }
         }
         
