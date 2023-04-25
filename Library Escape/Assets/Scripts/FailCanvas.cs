@@ -16,13 +16,16 @@ public class FailCanvas : MonoBehaviour
     {
         if (enabledCanvas)
         {
+            enabledCanvas = false;
             GetComponent<Canvas>().enabled = true;
             Invoke("DisableCanvas", 1f);
         }
     }
     void DisableCanvas()
     {
+        
         GetComponent<Canvas>().enabled = false;
-        enabledCanvas = false; 
+        
+        Debug.Log("Canvas Disabled");
     }
 }

@@ -35,6 +35,10 @@ public class PlayerPickupDrop : MonoBehaviour
     public Transform statue2ResetPos;
     public Transform statue3ResetPos;
     public Transform statue4ResetPos;
+    GameObject statue1Clone;
+    GameObject statue2Clone;
+    GameObject statue3Clone;
+    GameObject statue4Clone;
     int booksPlaced = 0;
     public static bool statueFail; 
     // Start is called before the first frame update
@@ -196,24 +200,28 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 1;
+                            statue1Clone = GameObject.Find("Statue1(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 2;
+                            statue2Clone = GameObject.Find("Statue2(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 3;
+                            statue3Clone = GameObject.Find("Statue3(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 4;
+                            statue4Clone = GameObject.Find("Statue4(Clone)");
                         }
                     }
                     else if (objectPlaceable.name == "PressurePlate2" && StatuePuzzle.puzzleComplete == false)
@@ -224,24 +232,28 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 1;
+                            statue1Clone = GameObject.Find("Statue1(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 2;
+                            statue2Clone = GameObject.Find("Statue2(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 3;
+                            statue3Clone = GameObject.Find("Statue3(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 4;
+                            statue4Clone = GameObject.Find("Statue4(Clone)");
                         }
                     }
                     else if (objectPlaceable.name == "PressurePlate3" && StatuePuzzle.puzzleComplete == false)
@@ -252,24 +264,28 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 1;
+                            statue1Clone = GameObject.Find("Statue1(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 2;
+                            statue2Clone = GameObject.Find("Statue2(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 3;
+                            statue3Clone = GameObject.Find("Statue3(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 4;
+                            statue4Clone = GameObject.Find("Statue4(Clone)");
                         }
                     }
                     else if (objectPlaceable.name == "PressurePlate4" && StatuePuzzle.puzzleComplete == false)
@@ -280,24 +296,28 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 1;
+                            statue1Clone = GameObject.Find("Statue1(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 2;
+                            statue2Clone = GameObject.Find("Statue2(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 3;
+                            statue3Clone = GameObject.Find("Statue3(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, plate4.position, Quaternion.identity);
-                            StatuePuzzle.statueOnFourth = 4; 
+                            StatuePuzzle.statueOnFourth = 4;
+                            statue4Clone = GameObject.Find("Statue4(Clone)");
                         }
                     }
                     else if (objectPlaceable.name == "ExtraPlate")
@@ -307,21 +327,25 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, extraPlate.position, Quaternion.identity);
+                            statue1Clone = GameObject.Find("Statue1(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, extraPlate.position, Quaternion.identity);
+                            statue2Clone = GameObject.Find("Statue2(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, extraPlate.position, Quaternion.identity);
+                            statue3Clone = GameObject.Find("Statue3(Clone)");
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, extraPlate.position, Quaternion.identity);
+                            statue4Clone = GameObject.Find("Statue4(Clone)");
                         }
                     }
                     
@@ -403,9 +427,10 @@ public class PlayerPickupDrop : MonoBehaviour
         }
         if (statueFail == true)
         {
-            FailCanvas.enabledCanvas = true; 
-            Invoke("ResetStatuePuzzle", 15f);
+            FailCanvas.enabledCanvas = true;
             statueFail = false;
+            Invoke("ResetStatuePuzzle", 15f);
+            
         }
     }
     void ResetBurnPuzzle()
@@ -432,10 +457,13 @@ public class PlayerPickupDrop : MonoBehaviour
     }
     void ResetStatuePuzzle()
     {
-        statue1.transform.position = statue1ResetPos.transform.position;
-        statue2.transform.position = statue2ResetPos.transform.position;
-        statue3.transform.position = statue3ResetPos.transform.position;
-        statue4.transform.position = statue4ResetPos.transform.position;
-
+        statue1Clone.transform.position = statue1ResetPos.transform.position;
+        statue2Clone.transform.position = statue2ResetPos.transform.position;
+        statue3Clone.transform.position = statue3ResetPos.transform.position;
+        statue4Clone.transform.position = statue4ResetPos.transform.position;
+        /*Destroy(statue1Clone);
+        Destroy(statue2Clone);
+        Destroy(statue3Clone);
+        Destroy(statue4Clone);*/
     }
 }
