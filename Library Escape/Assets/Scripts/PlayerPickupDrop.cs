@@ -39,7 +39,13 @@ public class PlayerPickupDrop : MonoBehaviour
     GameObject statue2Clone;
     GameObject statue3Clone;
     GameObject statue4Clone;
-    int totalNumber = 0;
+    bool twoActive = false;
+    bool threeActive = false;
+    bool fourActive = false;
+    bool sixActive = false; 
+    bool firstAttempt;
+    
+    public int totalNumber = 0;
     bool isMultiply; 
     int booksPlaced = 0;
     public static bool statueFail; 
@@ -426,11 +432,13 @@ public class PlayerPickupDrop : MonoBehaviour
                 }
                 else if (raycastHit.transform.TryGetComponent(out ObjectButton objectButton))
                 {
-                      
-                    if(objectButton.name == "Button3" && FibbonacciPuzzle.secondPuzzleAnswered == false && FibbonacciPuzzle.thirdPuzzleAnswered == false && FibbonacciPuzzle.firstPuzzleAnswered == false)
+                    
+                    
+                    if (objectButton.name == "Button3" && FibbonacciPuzzle.secondPuzzleAnswered == false && FibbonacciPuzzle.thirdPuzzleAnswered == false && FibbonacciPuzzle.firstPuzzleAnswered == false)
                     {
                         FibbonacciPuzzle.firstPuzzleAnswered = true;
-                        Debug.Log("First Puzzle Done"); 
+                        Debug.Log("First Puzzle Done");
+                        firstAttempt = true; 
 
                     }
                     else if(objectButton.name != "Button3" && FibbonacciPuzzle.firstPuzzleAnswered == false)
@@ -441,12 +449,17 @@ public class PlayerPickupDrop : MonoBehaviour
                     if (FibbonacciPuzzle.firstPuzzleAnswered == true && FibbonacciPuzzle.thirdPuzzleAnswered == false && FibbonacciPuzzle.secondPuzzleAnswered == false)
                     {
                         
-                        if(objectButton.name == "Button3" && totalNumber == 0)
+                        if(objectButton.name == "Button3" && totalNumber == 0 )
                         {
                             totalNumber = 3;
                             Debug.Log("3 successful");
+                            if(firstAttempt == true)
+                            {
+                                totalNumber = 0;
+                                firstAttempt = false;
+                            }
                         }
-                        else if(objectButton.name == "Button7" && totalNumber == 0)
+                        else if(objectButton.name == "Button7" && totalNumber == 0 )
                         {
                             totalNumber = 7;
                             Debug.Log("7 successful");
@@ -455,30 +468,96 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             totalNumber = 0;
                             FailCanvas.enabledCanvas = true;
+                            Debug.Log("Canvas enabled");
                         }
-                        /*if (objectButton.name == "ButtonMultiply" && totalNumber == 3 || totalNumber == 7 )
+                        else if (objectButton.name == "Button2")
                         {
-                            if (isMultiply == false)
-                            {
-                                isMultiply = true;
-                                Debug.Log("Multiply Successful");
-                            }
-                            
-                            
-                        }*/
+                            totalNumber = 0;
+                            FailCanvas.enabledCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        else if (objectButton.name == "Button4")
+                        {
+                            totalNumber = 0;
+                            FailCanvas.enabledCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        else if (objectButton.name == "Button6")
+                        {
+                            totalNumber = 0;
+                            FailCanvas.enabledCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        else if (objectButton.name == "Button10")
+                        {
+                            totalNumber = 0;
+                            FailCanvas.enabledCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        else if (objectButton.name == "Button15")
+                        {
+                            totalNumber = 0;
+                            FailCanvas.enabledCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        
                         if (objectButton.name == "Button3" && totalNumber == 7) 
                         {
-                            FibbonacciPuzzle.secondPuzzleAnswered = true;
+                            Invoke("AnswerSecondPuzzle", 1f);
                             Debug.Log("Puzzle 2 Done");
                             totalNumber = 0;
                         }
                         else if (objectButton.name == "Button7" && totalNumber == 3)
                         {
-                            FibbonacciPuzzle.secondPuzzleAnswered = true;
+                            Invoke("AnswerSecondPuzzle", 1f);
                             Debug.Log("Puzzle 2 Done");
                             totalNumber = 0;
                         }
+                        /*else if (totalNumber != 3 && totalNumber != 7 && totalNumber != 0)
+                        {
+                            FailCanvas.enabledCanvas = true;
+                        }*/
                         
+                    }
+                    if (FibbonacciPuzzle.firstPuzzleAnswered == true && FibbonacciPuzzle.secondPuzzleAnswered == true && FibbonacciPuzzle.thirdPuzzleAnswered == false)
+                    {
+                        
+                        if (objectButton.name == "Button2")
+                        {
+                            twoActive = true;
+                            
+                        }
+                        else if (objectButton.name == "Button3")
+                        {
+                            threeActive = true;
+                        }
+                        else if (objectButton.name == "Button4")
+                        {
+                            fourActive = true;
+                        }
+                        else if (objectButton.name == "Button6")
+                        {
+                            sixActive = true; 
+                        }
+
+                        if (objectButton.name != "Button2" && objectButton.name != "Button3" && objectButton.name != "Button4" && objectButton.name != "Button6")
+                        {
+                            
+                            
+                            FailCanvas.enabledCanvas = true;
+                                
+                            
+                            
+                            twoActive = false;
+                            threeActive = false;
+                            fourActive = false;
+                            sixActive = false; 
+                        }
+                        if (twoActive == true && threeActive == true && fourActive == true && sixActive == true)
+                        {
+                            FibbonacciPuzzle.thirdPuzzleAnswered = true;
+                            Debug.Log("Puzzle 3 Done");
+                        }
                     }
                 }
             }
@@ -524,5 +603,9 @@ public class PlayerPickupDrop : MonoBehaviour
         Destroy(statue2Clone);
         Destroy(statue3Clone);
         Destroy(statue4Clone);*/
+    }
+    void AnswerSecondPuzzle()
+    {
+        FibbonacciPuzzle.secondPuzzleAnswered = true;
     }
 }
