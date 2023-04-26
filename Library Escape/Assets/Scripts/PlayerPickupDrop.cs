@@ -31,6 +31,7 @@ public class PlayerPickupDrop : MonoBehaviour
     public Transform plate4; 
     public Transform extraPlate;
     public TextMeshProUGUI failText;
+    public TextMeshProUGUI carryingText;
     public Transform statue1ResetPos;
     public Transform statue2ResetPos;
     public Transform statue3ResetPos;
@@ -39,7 +40,13 @@ public class PlayerPickupDrop : MonoBehaviour
     GameObject statue2Clone;
     GameObject statue3Clone;
     GameObject statue4Clone;
-    int totalNumber = 0;
+    bool twoActive = false;
+    bool threeActive = false;
+    bool fourActive = false;
+    bool sixActive = false; 
+    bool firstAttempt;
+    
+    public int totalNumber = 0;
     bool isMultiply; 
     int booksPlaced = 0;
     public static bool statueFail; 
@@ -87,7 +94,8 @@ public class PlayerPickupDrop : MonoBehaviour
                         if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueThree == false && StatuePuzzle.isHoldingStatueFour == false)
                         {
                             Destroy(objectGrabbable.gameObject);
-                            StatuePuzzle.isHoldingStatueOne = true; 
+                            StatuePuzzle.isHoldingStatueOne = true;
+                            carryingText.text = "Carrying:\nStatue1";
                         }
                         
                     }
@@ -97,6 +105,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueTwo = true;
+                            carryingText.text = "Carrying:\nStatue2";
                         }
                     }
                     else if (objectGrabbable.name == "Statue3" || objectGrabbable.name == "Statue3(Clone)" && StatuePuzzle.puzzleComplete == false)
@@ -105,6 +114,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueThree = true;
+                            carryingText.text = "Carrying:\nStatue3";
                         }
                     }
                     else if (objectGrabbable.name == "Statue4" || objectGrabbable.name == "Statue4(Clone)" && StatuePuzzle.puzzleComplete == false)
@@ -113,6 +123,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueFour = true;
+                            carryingText.text = "Carrying:\nStatue4";
                         }
                     }
                     else if (objectGrabbable.name == "Book1" || objectGrabbable.name == "Book1(Clone)" && BurningPuzzle.puzzleComplete == false)
@@ -121,6 +132,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookOne = true;
+                            carryingText.text = "Carrying:\nBook1";
                         }
                     }
                     else if (objectGrabbable.name == "Book2" || objectGrabbable.name == "Book2(Clone)" && BurningPuzzle.puzzleComplete == false)
@@ -129,6 +141,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookTwo = true;
+                            carryingText.text = "Carrying:\nBook2";
                         }
                     }
                     else if (objectGrabbable.name == "Book3" || objectGrabbable.name == "Book3(Clone)" && BurningPuzzle.puzzleComplete == false)
@@ -137,6 +150,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookThree = true;
+                            carryingText.text = "Carrying:\nBook3";
                         }
                     }
                     else if (objectGrabbable.name == "Book4" || objectGrabbable.name == "Book4(Clone)" && BurningPuzzle.puzzleComplete == false)
@@ -145,6 +159,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookFour = true;
+                            carryingText.text = "Carrying:\nBook4";
                         }
                     }
                     else if (objectGrabbable.name == "Book5" || objectGrabbable.name == "Book5(Clone)" && BurningPuzzle.puzzleComplete == false)
@@ -153,6 +168,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookFive = true;
+                            carryingText.text = "Carrying:\nBook5";
                         }
                     }
                     else if (objectGrabbable.name == "Book6" || objectGrabbable.name == "Book6(Clone)" && BurningPuzzle.puzzleComplete == false)
@@ -161,6 +177,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookSix = true;
+                            carryingText.text = "Carrying:\nBook6";
                         }
                     }
                 }
@@ -203,6 +220,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue1, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 1;
                             statue1Clone = GameObject.Find("Statue1(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
@@ -210,6 +228,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue2, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 2;
                             statue2Clone = GameObject.Find("Statue2(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
@@ -217,6 +236,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue3, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 3;
                             statue3Clone = GameObject.Find("Statue3(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
@@ -224,6 +244,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue4, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 4;
                             statue4Clone = GameObject.Find("Statue4(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                     }
                     else if (objectPlaceable.name == "PressurePlate2" && StatuePuzzle.puzzleComplete == false)
@@ -235,6 +256,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue1, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 1;
                             statue1Clone = GameObject.Find("Statue1(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
@@ -242,6 +264,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue2, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 2;
                             statue2Clone = GameObject.Find("Statue2(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
@@ -249,6 +272,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue3, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 3;
                             statue3Clone = GameObject.Find("Statue3(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
@@ -256,6 +280,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue4, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 4;
                             statue4Clone = GameObject.Find("Statue4(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                     }
                     else if (objectPlaceable.name == "PressurePlate3" && StatuePuzzle.puzzleComplete == false)
@@ -267,6 +292,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue1, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 1;
                             statue1Clone = GameObject.Find("Statue1(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
@@ -274,6 +300,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue2, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 2;
                             statue2Clone = GameObject.Find("Statue2(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
@@ -281,6 +308,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue3, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 3;
                             statue3Clone = GameObject.Find("Statue3(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
@@ -288,6 +316,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue4, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 4;
                             statue4Clone = GameObject.Find("Statue4(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                     }
                     else if (objectPlaceable.name == "PressurePlate4" && StatuePuzzle.puzzleComplete == false)
@@ -299,6 +328,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue1, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 1;
                             statue1Clone = GameObject.Find("Statue1(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
@@ -306,6 +336,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue2, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 2;
                             statue2Clone = GameObject.Find("Statue2(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
@@ -313,6 +344,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue3, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 3;
                             statue3Clone = GameObject.Find("Statue3(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
@@ -320,6 +352,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue4, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 4;
                             statue4Clone = GameObject.Find("Statue4(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                     }
                     else if (objectPlaceable.name == "ExtraPlate")
@@ -330,24 +363,28 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, extraPlate.position, Quaternion.identity);
                             statue1Clone = GameObject.Find("Statue1(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, extraPlate.position, Quaternion.identity);
                             statue2Clone = GameObject.Find("Statue2(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, extraPlate.position, Quaternion.identity);
                             statue3Clone = GameObject.Find("Statue3(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, extraPlate.position, Quaternion.identity);
                             statue4Clone = GameObject.Find("Statue4(Clone)");
+                            carryingText.text = "Carrying:\nNothing";
                         }
                     }
                     
@@ -363,6 +400,7 @@ public class PlayerPickupDrop : MonoBehaviour
                                 booksPlaced++;
                                 BurningPuzzle.isBookOnePlaced = true;
                                 Debug.Log("Successfully Burned1");
+                                carryingText.text = "Carrying:\nNothing";
                             }
                             else if (BurningPuzzle.isHoldingBookTwo == true)
                             {
@@ -370,6 +408,7 @@ public class PlayerPickupDrop : MonoBehaviour
                                 booksPlaced++;
                                 BurningPuzzle.isBookTwoPlaced = true;
                                 Debug.Log("Successfully Burned2");
+                                carryingText.text = "Carrying:\nNothing";
                             }
                             else if (BurningPuzzle.isHoldingBookThree == true)
                             {
@@ -377,6 +416,7 @@ public class PlayerPickupDrop : MonoBehaviour
                                 booksPlaced++;
                                 BurningPuzzle.isBookThreePlaced = true;
                                 Debug.Log("Successfully Burned3");
+                                carryingText.text = "Carrying:\nNothing";
                             }
                             else if (BurningPuzzle.isHoldingBookFour == true)
                             {
@@ -384,6 +424,7 @@ public class PlayerPickupDrop : MonoBehaviour
                                 booksPlaced++;
                                 BurningPuzzle.isBookFourPlaced = true;
                                 Debug.Log("Successfully Burned4");
+                                carryingText.text = "Carrying:\nNothing";
                             }
                             else if (BurningPuzzle.isHoldingBookFive == true)
                             {
@@ -391,6 +432,7 @@ public class PlayerPickupDrop : MonoBehaviour
                                 booksPlaced++;
                                 BurningPuzzle.isBookFivePlaced = true;
                                 Debug.Log("Successfully Burned5");
+                                carryingText.text = "Carrying:\nNothing";
                             }
                             else if (BurningPuzzle.isHoldingBookSix == true)
                             {
@@ -398,6 +440,7 @@ public class PlayerPickupDrop : MonoBehaviour
                                 booksPlaced++;
                                 BurningPuzzle.isBookSixPlaced = true;
                                 Debug.Log("Successfully Burned6");
+                                carryingText.text = "Carrying:\nNothing";
                             }
                         }
                         
@@ -426,27 +469,35 @@ public class PlayerPickupDrop : MonoBehaviour
                 }
                 else if (raycastHit.transform.TryGetComponent(out ObjectButton objectButton))
                 {
-                      
-                    if(objectButton.name == "Button3" && FibbonacciPuzzle.secondPuzzleAnswered == false && FibbonacciPuzzle.thirdPuzzleAnswered == false && FibbonacciPuzzle.firstPuzzleAnswered == false)
+                    
+                    
+                    if (objectButton.name == "Button3" && FibbonacciPuzzle.secondPuzzleAnswered == false && FibbonacciPuzzle.thirdPuzzleAnswered == false && FibbonacciPuzzle.firstPuzzleAnswered == false)
                     {
                         FibbonacciPuzzle.firstPuzzleAnswered = true;
-                        Debug.Log("First Puzzle Done"); 
+                        Debug.Log("First Puzzle Done");
+                        firstAttempt = true;
+                        WinCanvas.fibbonacciPuzzleWin = true;
 
                     }
                     else if(objectButton.name != "Button3" && FibbonacciPuzzle.firstPuzzleAnswered == false)
                     {
-                        FailCanvas.enabledCanvas = true;
+                        FailCanvas.enabledFibonacciCanvas = true;
                     }
                     
                     if (FibbonacciPuzzle.firstPuzzleAnswered == true && FibbonacciPuzzle.thirdPuzzleAnswered == false && FibbonacciPuzzle.secondPuzzleAnswered == false)
                     {
                         
-                        if(objectButton.name == "Button3" && totalNumber == 0)
+                        if(objectButton.name == "Button3" && totalNumber == 0 )
                         {
                             totalNumber = 3;
                             Debug.Log("3 successful");
+                            if(firstAttempt == true)
+                            {
+                                totalNumber = 0;
+                                firstAttempt = false;
+                            }
                         }
-                        else if(objectButton.name == "Button7" && totalNumber == 0)
+                        else if(objectButton.name == "Button7" && totalNumber == 0 )
                         {
                             totalNumber = 7;
                             Debug.Log("7 successful");
@@ -454,31 +505,100 @@ public class PlayerPickupDrop : MonoBehaviour
                         else if (objectButton.name != "Button3" && objectButton.name != "Button7" && totalNumber != 0)
                         {
                             totalNumber = 0;
-                            FailCanvas.enabledCanvas = true;
+                            FailCanvas.enabledFibonacciCanvas = true;
+                            Debug.Log("Canvas enabled");
                         }
-                        /*if (objectButton.name == "ButtonMultiply" && totalNumber == 3 || totalNumber == 7 )
+                        else if (objectButton.name == "Button2")
                         {
-                            if (isMultiply == false)
-                            {
-                                isMultiply = true;
-                                Debug.Log("Multiply Successful");
-                            }
-                            
-                            
-                        }*/
+                            totalNumber = 0;
+                            FailCanvas.enabledFibonacciCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        else if (objectButton.name == "Button4")
+                        {
+                            totalNumber = 0;
+                            FailCanvas.enabledFibonacciCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        else if (objectButton.name == "Button6")
+                        {
+                            totalNumber = 0;
+                            FailCanvas.enabledFibonacciCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        else if (objectButton.name == "Button10")
+                        {
+                            totalNumber = 0;
+                            FailCanvas.enabledFibonacciCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        else if (objectButton.name == "Button15")
+                        {
+                            totalNumber = 0;
+                            FailCanvas.enabledFibonacciCanvas = true;
+                            Debug.Log("Canvas enabled");
+                        }
+                        
                         if (objectButton.name == "Button3" && totalNumber == 7) 
                         {
-                            FibbonacciPuzzle.secondPuzzleAnswered = true;
+                            Invoke("AnswerSecondPuzzle", 1f);
                             Debug.Log("Puzzle 2 Done");
                             totalNumber = 0;
+                            WinCanvas.fibbonacciPuzzleWin = true;
                         }
                         else if (objectButton.name == "Button7" && totalNumber == 3)
                         {
-                            FibbonacciPuzzle.secondPuzzleAnswered = true;
+                            Invoke("AnswerSecondPuzzle", 1f);
                             Debug.Log("Puzzle 2 Done");
                             totalNumber = 0;
+                            WinCanvas.fibbonacciPuzzleWin = true;
                         }
+                        /*else if (totalNumber != 3 && totalNumber != 7 && totalNumber != 0)
+                        {
+                            FailCanvas.enabledCanvas = true;
+                        }*/
                         
+                    }
+                    if (FibbonacciPuzzle.firstPuzzleAnswered == true && FibbonacciPuzzle.secondPuzzleAnswered == true && FibbonacciPuzzle.thirdPuzzleAnswered == false)
+                    {
+                        
+                        if (objectButton.name == "Button2")
+                        {
+                            twoActive = true;
+                            
+                        }
+                        else if (objectButton.name == "Button3")
+                        {
+                            threeActive = true;
+                        }
+                        else if (objectButton.name == "Button4")
+                        {
+                            fourActive = true;
+                        }
+                        else if (objectButton.name == "Button6")
+                        {
+                            sixActive = true; 
+                        }
+
+                        if (objectButton.name != "Button2" && objectButton.name != "Button3" && objectButton.name != "Button4" && objectButton.name != "Button6")
+                        {
+
+
+                            FailCanvas.enabledFibonacciCanvas = true;
+
+
+
+                            twoActive = false;
+                            threeActive = false;
+                            fourActive = false;
+                            sixActive = false; 
+                        }
+                        if (twoActive == true && threeActive == true && fourActive == true && sixActive == true)
+                        {
+                            FibbonacciPuzzle.thirdPuzzleAnswered = true;
+                            Debug.Log("Puzzle 3 Done");
+                            WinCanvas.fibbonacciPuzzleWin = true;
+                        }
                     }
                 }
             }
@@ -524,5 +644,9 @@ public class PlayerPickupDrop : MonoBehaviour
         Destroy(statue2Clone);
         Destroy(statue3Clone);
         Destroy(statue4Clone);*/
+    }
+    void AnswerSecondPuzzle()
+    {
+        FibbonacciPuzzle.secondPuzzleAnswered = true;
     }
 }
