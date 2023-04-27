@@ -26,6 +26,7 @@ public class KeypadCanvas : MonoBehaviour
                 keypadEnabled = false;
                 Time.timeScale = 1;
                 GetComponent<Canvas>().enabled = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
     }
