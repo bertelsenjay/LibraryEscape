@@ -193,32 +193,39 @@ public class PlayerPickupDrop : MonoBehaviour
                 {
                     if (objectReadable.name == "BookRead")
                     {
+                        Time.timeScale = 0;
                         BookUI.isBook = true;
                         BookUI.bookOneOpen = true;
+                        
                         
                     }
                     else if (objectReadable.name == "BookRead2")
                     {
+                        Time.timeScale = 0;
                         BookUI.isBook = true;
                         BookUI.bookTwoOpen = true;
                     }
                     else if (objectReadable.name == "BookRead3")
                     {
+                        Time.timeScale = 0;
                         BookUI.isBook = true;
                         BookUI.bookThreeOpen = true;
                     }
                     else if (objectReadable.name == "BookRead4")
                     {
+                        Time.timeScale = 0;
                         BookUI.isBook = true;
                         BookUI.bookFourOpen = true;
                     }
                     else if (objectReadable.name == "BookRead5")
                     {
+                        Time.timeScale = 0;
                         BookUI.isBook = true;
                         BookUI.bookFiveOpen = true;
                     }
                     else if (objectReadable.name == "BookRead6")
                     {
+                        Time.timeScale = 0;
                         BookUI.isBook = true;
                         BookUI.bookSixOpen = true;
                     }

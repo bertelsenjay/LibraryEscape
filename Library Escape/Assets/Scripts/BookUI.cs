@@ -14,12 +14,12 @@ public class BookUI : MonoBehaviour
     public string bookFourText;
     public string bookFiveText;
     public string bookSixText;
-    public static bool bookOneOpen;
-    public static bool bookTwoOpen;
-    public static bool bookThreeOpen;
-    public static bool bookFourOpen;
-    public static bool bookFiveOpen;
-    public static bool bookSixOpen;
+    public static bool bookOneOpen = false;
+    public static bool bookTwoOpen = false;
+    public static bool bookThreeOpen = false;
+    public static bool bookFourOpen = false;
+    public static bool bookFiveOpen = false;
+    public static bool bookSixOpen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,10 +41,11 @@ public class BookUI : MonoBehaviour
                 bookText.text = bookOneText;
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    GetComponent<Canvas>().enabled = false;
-                    Time.timeScale = 1;
                     isBook = false;
                     bookOneOpen = false;
+                    GetComponent<Canvas>().enabled = false;
+                    //Time.timeScale = 1;
+                    
                 }
             }
             else if (bookTwoOpen)
@@ -52,10 +53,11 @@ public class BookUI : MonoBehaviour
                 bookText.text = bookTwoText;
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    GetComponent<Canvas>().enabled = false;
-                    Time.timeScale = 1;
                     isBook = false;
                     bookTwoOpen = false;
+                    GetComponent<Canvas>().enabled = false;
+                    //Time.timeScale = 1;
+                    
                 }
             }
             else if (bookThreeOpen)
@@ -63,10 +65,11 @@ public class BookUI : MonoBehaviour
                 bookText.text = bookThreeText;
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    GetComponent<Canvas>().enabled = false;
-                    Time.timeScale = 1;
                     isBook = false;
                     bookThreeOpen = false;
+                    GetComponent<Canvas>().enabled = false;
+                    //Time.timeScale = 1;
+                    
                 }
             }
             else if (bookFourOpen)
@@ -74,10 +77,11 @@ public class BookUI : MonoBehaviour
                 bookText.text = bookFourText;
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    GetComponent<Canvas>().enabled = false;
-                    Time.timeScale = 1;
                     isBook = false;
                     bookFourOpen = false;
+                    GetComponent<Canvas>().enabled = false;
+                    //Time.timeScale = 1;
+                    
                 }
             }
             else if (bookFiveOpen)
@@ -85,10 +89,11 @@ public class BookUI : MonoBehaviour
                 bookText.text = bookFiveText;
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    GetComponent<Canvas>().enabled = false;
-                    Time.timeScale = 1;
                     isBook = false;
                     bookFiveOpen = false;
+                    GetComponent<Canvas>().enabled = false;
+                    //Time.timeScale = 1;
+                    
                 }
             }
             else if (bookSixOpen)
@@ -96,10 +101,11 @@ public class BookUI : MonoBehaviour
                 bookText.text = bookSixText;
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    GetComponent<Canvas>().enabled = false;
-                    Time.timeScale = 1;
                     isBook = false;
                     bookSixOpen = false;
+                    GetComponent<Canvas>().enabled = false;
+                    //Time.timeScale = 1;
+                    
                 }
             }
         }
