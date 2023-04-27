@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class KeypadCanvas : MonoBehaviour
 {
     public static bool keypadEnabled = false;
+    public static bool autoDisable = false; 
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +25,18 @@ public class KeypadCanvas : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 keypadEnabled = false;
-                Time.timeScale = 1;
+                if (keypadEnabled == false)
+                {
+                    GetComponent<Canvas>().enabled = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                
+            }
+            if (autoDisable == true)
+            {
                 GetComponent<Canvas>().enabled = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                autoDisable = false;
             }
         }
     }

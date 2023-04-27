@@ -6,6 +6,7 @@ using TMPro;
 
 public class PlayerPickupDrop : MonoBehaviour
 {
+    
     [SerializeField] private Transform playerCameraTransform;
     [SerializeField] private LayerMask pickupLayerMask;
     public float pickupDistance = 2.0f;
@@ -50,7 +51,9 @@ public class PlayerPickupDrop : MonoBehaviour
     public int totalNumber = 0;
     bool isMultiply; 
     int booksPlaced = 0;
-    public static bool statueFail; 
+    public static bool statueFail;
+    
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -61,12 +64,14 @@ public class PlayerPickupDrop : MonoBehaviour
         Instantiate(bookBurn5, book5Trans.position, Quaternion.identity);
         Instantiate(bookBurn6, book6Trans.position, Quaternion.identity);
     }
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickupDistance, pickupLayerMask))
             {
+              
                 if (raycastHit.transform.TryGetComponent(out ObjectGrabbable objectGrabbable))
                 {
                     
@@ -183,6 +188,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         }
                     }
                 }
+                
                 else if (raycastHit.transform.TryGetComponent(out ObjectReadable objectReadable))
                 {
                     if (objectReadable.name == "BookRead")
@@ -221,6 +227,7 @@ public class PlayerPickupDrop : MonoBehaviour
 
                     }*/
                 }
+                
                 else if (raycastHit.transform.TryGetComponent(out LockedObject lockedObject))
                 {
                     LockedText.enableText = true;
@@ -238,6 +245,7 @@ public class PlayerPickupDrop : MonoBehaviour
                     }
                     
                 }
+                
                 else if (raycastHit.transform.TryGetComponent(out ObjectPlaceable objectPlaceable))
                 {
                     if (objectPlaceable.name == "PressurePlate1" && StatuePuzzle.puzzleComplete == false)
@@ -493,7 +501,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             
                         }
                     }
-                    
+                   
 
                 }
                 else if (raycastHit.transform.TryGetComponent(out ObjectButton objectButton))
