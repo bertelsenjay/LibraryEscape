@@ -183,9 +183,36 @@ public class PlayerPickupDrop : MonoBehaviour
                 }
                 else if (raycastHit.transform.TryGetComponent(out ObjectReadable objectReadable))
                 {
-                    if (objectReadable.name == "Book")
+                    if (objectReadable.name == "BookRead")
                     {
-                        BookUI.isBook = true; 
+                        BookUI.isBook = true;
+                        BookUI.bookOneOpen = true;
+                        
+                    }
+                    else if (objectReadable.name == "BookRead2")
+                    {
+                        BookUI.isBook = true;
+                        BookUI.bookTwoOpen = true;
+                    }
+                    else if (objectReadable.name == "BookRead3")
+                    {
+                        BookUI.isBook = true;
+                        BookUI.bookThreeOpen = true;
+                    }
+                    else if (objectReadable.name == "BookRead4")
+                    {
+                        BookUI.isBook = true;
+                        BookUI.bookFourOpen = true;
+                    }
+                    else if (objectReadable.name == "BookRead5")
+                    {
+                        BookUI.isBook = true;
+                        BookUI.bookFiveOpen = true;
+                    }
+                    else if (objectReadable.name == "BookRead6")
+                    {
+                        BookUI.isBook = true;
+                        BookUI.bookSixOpen = true;
                     }
                     /*switch (objectReadable.name)
                     {
