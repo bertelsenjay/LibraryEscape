@@ -102,11 +102,17 @@ public class KeyPad : MonoBehaviour
         else
         {
             Ans.text = "Wrong!";
-            Invoke("Reset", 1f);
+            Invoke("DisableKeypad", 2.5f);
         }
     }
-    public void Reset()
+    public void ResetPuzzle()
     {
         Ans.text = "";
+    }
+    void DisableKeypad()
+    {
+        KeypadCanvas.autoDisable = true;
+
+
     }
 }
