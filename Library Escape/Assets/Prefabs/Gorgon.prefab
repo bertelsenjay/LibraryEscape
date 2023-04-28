@@ -16,17 +16,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f76b38f1ada1c4c439593f97ca99046e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.254019
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f76b38f1ada1c4c439593f97ca99046e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f76b38f1ada1c4c439593f97ca99046e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -377.9632
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f76b38f1ada1c4c439593f97ca99046e,
         type: 3}
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {x: -90, y: 0, z: 0}
+  statue: {fileID: 0}
 --- !u!64 &4312162886044042505
 MeshCollider:
   m_ObjectHideFlags: 0
