@@ -95,42 +95,42 @@ public class PlayerPickupDrop : MonoBehaviour
                         Destroy(objectGrabbable.gameObject);
                         Keys.goldKey = true;
                     }
-                    else if (objectGrabbable.name == "Statue1" || objectGrabbable.name == "Statue1(Clone)" && StatuePuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "Gorgon" || objectGrabbable.name == "Gorgon(Clone)" && StatuePuzzle.puzzleComplete == false)
                     {
                         if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueThree == false && StatuePuzzle.isHoldingStatueFour == false && statueGrabbable == true)
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueOne = true;
-                            carryingText.text = "Carrying:\nStatue1";
+                            carryingText.text = "Carrying:\nGorgon Statue";
                             
                         }
                         
                     }
-                    else if (objectGrabbable.name == "Statue2" || objectGrabbable.name == "Statue2(Clone)" && StatuePuzzle.puzzleComplete == false && statueGrabbable == true)
+                    else if (objectGrabbable.name == "Knight" || objectGrabbable.name == "Knight(Clone)" && StatuePuzzle.puzzleComplete == false && statueGrabbable == true)
                     {
                         if (StatuePuzzle.isHoldingStatueOne == false && StatuePuzzle.isHoldingStatueThree == false && StatuePuzzle.isHoldingStatueFour == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueTwo = true;
-                            carryingText.text = "Carrying:\nStatue2";
+                            carryingText.text = "Carrying:\nKnight Statue";
                         }
                     }
-                    else if (objectGrabbable.name == "Statue3" || objectGrabbable.name == "Statue3(Clone)" && StatuePuzzle.puzzleComplete == false && statueGrabbable == true)
+                    else if (objectGrabbable.name == "Pirate" || objectGrabbable.name == "Pirate(Clone)" && StatuePuzzle.puzzleComplete == false && statueGrabbable == true)
                     {
                         if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueOne == false && StatuePuzzle.isHoldingStatueFour == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueThree = true;
-                            carryingText.text = "Carrying:\nStatue3";
+                            carryingText.text = "Carrying:\nPirate Statue";
                         }
                     }
-                    else if (objectGrabbable.name == "Statue4" || objectGrabbable.name == "Statue4(Clone)" && StatuePuzzle.puzzleComplete == false && statueGrabbable == true)
+                    else if (objectGrabbable.name == "Wizard" || objectGrabbable.name == "Wizard(Clone)" && StatuePuzzle.puzzleComplete == false && statueGrabbable == true)
                     {
                         if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueOne == false && StatuePuzzle.isHoldingStatueThree == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueFour = true;
-                            carryingText.text = "Carrying:\nStatue4";
+                            carryingText.text = "Carrying:\nWizard Statue";
                         }
                     }
                     else if (objectGrabbable.name == "Book1" || objectGrabbable.name == "Book1(Clone)" && BurningPuzzle.puzzleComplete == false)
