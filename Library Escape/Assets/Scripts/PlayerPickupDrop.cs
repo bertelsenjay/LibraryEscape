@@ -37,10 +37,10 @@ public class PlayerPickupDrop : MonoBehaviour
     public Transform statue2ResetPos;
     public Transform statue3ResetPos;
     public Transform statue4ResetPos;
-    GameObject statue1Clone;
-    GameObject statue2Clone;
-    GameObject statue3Clone;
-    GameObject statue4Clone;
+    public static GameObject statue1Clone;
+    public static GameObject statue2Clone;
+    public static GameObject statue3Clone;
+    public static GameObject statue4Clone;
     bool twoActive = false;
     bool threeActive = false;
     bool fourActive = false;
@@ -266,7 +266,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             
                             StatuePuzzle.statueOnFirst = 1;
                             statue1Clone = GameObject.Find("Gorgon(Clone)");
-
+                            
                             Rotator.placeGorgon = true; 
                             carryingText.text = "Carrying:\nNothing";
                         }
