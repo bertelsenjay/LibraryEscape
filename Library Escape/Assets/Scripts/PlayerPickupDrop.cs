@@ -108,7 +108,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueOne = true;
                             carryingText.text = "Carrying:\nGorgon Statue";
-                            /*if (StatuePuzzle.statueOnFirst == 1)
+                            if (StatuePuzzle.statueOnFirst == 1)
                             {
                                 StatuePuzzle.statueOnFirst = 0;
                             }
@@ -123,7 +123,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             else if (StatuePuzzle.statueOnFourth == 1)
                             {
                                 StatuePuzzle.statueOnFourth = 0;
-                            }*/
+                            }
                         }
                         
                     }
@@ -134,7 +134,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueTwo = true;
                             carryingText.text = "Carrying:\nKnight Statue";
-                            /*if (StatuePuzzle.statueOnFirst == 2)
+                            if (StatuePuzzle.statueOnFirst == 2)
                             {
                                 StatuePuzzle.statueOnFirst = 0;
                             }
@@ -149,7 +149,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             else if (StatuePuzzle.statueOnFourth == 2)
                             {
                                 StatuePuzzle.statueOnFourth = 0;
-                            }*/
+                            }
                         }
                     }
                     else if (objectGrabbable.name == "Pirate" || objectGrabbable.name == "Pirate(Clone)" && StatuePuzzle.puzzleComplete == false && statueGrabbable == true)
@@ -159,7 +159,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueThree = true;
                             carryingText.text = "Carrying:\nPirate Statue";
-                            /*if (StatuePuzzle.statueOnFirst == 3)
+                            if (StatuePuzzle.statueOnFirst == 3)
                             {
                                 StatuePuzzle.statueOnFirst = 0;
                             }
@@ -174,7 +174,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             else if (StatuePuzzle.statueOnFourth == 3)
                             {
                                 StatuePuzzle.statueOnFourth = 0;
-                            }*/
+                            }
                         }
                     }
                     else if (objectGrabbable.name == "Wizard" || objectGrabbable.name == "Wizard(Clone)" && StatuePuzzle.puzzleComplete == false && statueGrabbable == true)
@@ -184,7 +184,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueFour = true;
                             carryingText.text = "Carrying:\nWizard Statue";
-                            /*if (StatuePuzzle.statueOnFirst == 4)
+                            if (StatuePuzzle.statueOnFirst == 4)
                             {
                                 StatuePuzzle.statueOnFirst = 0;
                             }
@@ -199,7 +199,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             else if (StatuePuzzle.statueOnFourth == 4)
                             {
                                 StatuePuzzle.statueOnFourth = 0;
-                            }*/
+                            }
                         }
                     }
                     else if (objectGrabbable.name == "Book1" || objectGrabbable.name == "Book1(Clone)" && BurningPuzzle.puzzleComplete == false)
