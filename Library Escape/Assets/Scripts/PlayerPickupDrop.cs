@@ -37,10 +37,10 @@ public class PlayerPickupDrop : MonoBehaviour
     public Transform statue2ResetPos;
     public Transform statue3ResetPos;
     public Transform statue4ResetPos;
-    GameObject statue1Clone;
-    GameObject statue2Clone;
-    GameObject statue3Clone;
-    GameObject statue4Clone;
+    public static GameObject statue1Clone;
+    public static GameObject statue2Clone;
+    public static GameObject statue3Clone;
+    public static GameObject statue4Clone;
     bool twoActive = false;
     bool threeActive = false;
     bool fourActive = false;
@@ -266,7 +266,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             
                             StatuePuzzle.statueOnFirst = 1;
                             statue1Clone = GameObject.Find("Gorgon(Clone)");
-
+                            
                             Rotator.placeGorgon = true; 
                             carryingText.text = "Carrying:\nNothing";
                         }
@@ -276,6 +276,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue2, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 2;
                             statue2Clone = GameObject.Find("Knight(Clone)");
+                            Rotator.placeKnight = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
@@ -284,6 +285,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue3, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 3;
                             statue3Clone = GameObject.Find("Pirate(Clone)");
+                            Rotator.placePirate = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
@@ -292,6 +294,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             Instantiate(statue4, plate1.position, Quaternion.identity);
                             StatuePuzzle.statueOnFirst = 4;
                             statue4Clone = GameObject.Find("Wizard(Clone)");
+                            Rotator.placeWizard = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                     }
@@ -303,7 +306,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 1;
-                            statue1Clone = GameObject.Find("Statue1(Clone)");
+                            Rotator.placeGorgon = true;
+                            statue1Clone = GameObject.Find("Gorgon(Clone)");
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
@@ -311,7 +315,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 2;
-                            statue2Clone = GameObject.Find("Statue2(Clone)");
+                            statue2Clone = GameObject.Find("Knight(Clone)");
+                            Rotator.placeKnight = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
@@ -319,7 +324,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 3;
-                            statue3Clone = GameObject.Find("Statue3(Clone)");
+                            statue3Clone = GameObject.Find("Pirate(Clone)");
+                            Rotator.placePirate = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
@@ -327,7 +333,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, plate2.position, Quaternion.identity);
                             StatuePuzzle.statueOnSecond = 4;
-                            statue4Clone = GameObject.Find("Statue4(Clone)");
+                            statue4Clone = GameObject.Find("Wizard(Clone)");
+                            Rotator.placeWizard = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                     }
@@ -339,7 +346,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 1;
-                            statue1Clone = GameObject.Find("Statue1(Clone)");
+                            Rotator.placeGorgon = true;
+                            statue1Clone = GameObject.Find("Gorgon(Clone)");
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
@@ -347,7 +355,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 2;
-                            statue2Clone = GameObject.Find("Statue2(Clone)");
+                            statue2Clone = GameObject.Find("Knight(Clone)");
+                            Rotator.placeKnight = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
@@ -355,7 +364,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 3;
-                            statue3Clone = GameObject.Find("Statue3(Clone)");
+                            statue3Clone = GameObject.Find("Pirate(Clone)");
+                            Rotator.placePirate = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
@@ -363,7 +373,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, plate3.position, Quaternion.identity);
                             StatuePuzzle.statueOnThird = 4;
-                            statue4Clone = GameObject.Find("Statue4(Clone)");
+                            statue4Clone = GameObject.Find("Wizard(Clone)");
+                            Rotator.placeWizard = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                     }
@@ -375,15 +386,17 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 1;
-                            statue1Clone = GameObject.Find("Statue1(Clone)");
+                            statue1Clone = GameObject.Find("Gorgon(Clone)");
                             carryingText.text = "Carrying:\nNothing";
+                            Rotator.placeGorgon = true;
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 2;
-                            statue2Clone = GameObject.Find("Statue2(Clone)");
+                            statue2Clone = GameObject.Find("Knight(Clone)");
+                            Rotator.placeKnight = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
@@ -391,7 +404,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 3;
-                            statue3Clone = GameObject.Find("Statue3(Clone)");
+                            statue3Clone = GameObject.Find("Pirate(Clone)");
+                            Rotator.placePirate = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
@@ -399,7 +413,8 @@ public class PlayerPickupDrop : MonoBehaviour
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, plate4.position, Quaternion.identity);
                             StatuePuzzle.statueOnFourth = 4;
-                            statue4Clone = GameObject.Find("Statue4(Clone)");
+                            statue4Clone = GameObject.Find("Wizard(Clone)");
+                            Rotator.placeWizard = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                     }
@@ -410,28 +425,32 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             StatuePuzzle.isHoldingStatueOne = false;
                             Instantiate(statue1, extraPlate.position, Quaternion.identity);
-                            statue1Clone = GameObject.Find("Statue1(Clone)");
+                            statue1Clone = GameObject.Find("Gorgon(Clone)");
                             carryingText.text = "Carrying:\nNothing";
+                            Rotator.placeGorgon = true;
                         }
                         else if (StatuePuzzle.isHoldingStatueTwo == true)
                         {
                             StatuePuzzle.isHoldingStatueTwo = false;
                             Instantiate(statue2, extraPlate.position, Quaternion.identity);
-                            statue2Clone = GameObject.Find("Statue2(Clone)");
+                            statue2Clone = GameObject.Find("Knight(Clone)");
+                            Rotator.placeKnight = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueThree == true)
                         {
                             StatuePuzzle.isHoldingStatueThree = false;
                             Instantiate(statue3, extraPlate.position, Quaternion.identity);
-                            statue3Clone = GameObject.Find("Statue3(Clone)");
+                            statue3Clone = GameObject.Find("Pirate(Clone)");
+                            Rotator.placePirate = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                         else if (StatuePuzzle.isHoldingStatueFour == true)
                         {
                             StatuePuzzle.isHoldingStatueFour = false;
                             Instantiate(statue4, extraPlate.position, Quaternion.identity);
-                            statue4Clone = GameObject.Find("Statue4(Clone)");
+                            statue4Clone = GameObject.Find("Wizard(Clone)");
+                            Rotator.placeWizard = true;
                             carryingText.text = "Carrying:\nNothing";
                         }
                     }
