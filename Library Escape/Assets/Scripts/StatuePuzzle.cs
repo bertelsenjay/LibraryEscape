@@ -37,6 +37,7 @@ public class StatuePuzzle : MonoBehaviour
                 puzzleComplete = true;
                 Destroy(codeRevealObject);
                 isFinished = true;
+                WinCanvas.statuePuzzleWin = true;
             }
             else
             {
