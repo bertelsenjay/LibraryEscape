@@ -18,7 +18,8 @@ public class BurningPuzzle : MonoBehaviour
     public static bool isBookFivePlaced = false;
     public static bool isBookSixPlaced = false; 
 
-    public static bool puzzleComplete = false; 
+    public static bool puzzleComplete = false;
+    public GameObject burningPuzzleCover;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,9 @@ public class BurningPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (puzzleComplete == true)
+        {
+            Destroy(burningPuzzleCover);
+        }
     }
 }

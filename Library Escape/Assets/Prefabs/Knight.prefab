@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14093703b54affa4e9d572f4cd98b433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
-  statue: {fileID: 0}
+  rotation: {x: -90, y: 0, z: 0}
+  statue: {fileID: 1136663978796884515}
