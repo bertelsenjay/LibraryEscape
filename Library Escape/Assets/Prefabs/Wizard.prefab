@@ -84,6 +84,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -1794078965351716603}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb73086e98a04db4690dd67a730c1fe4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3205563870220924068}
   m_SourcePrefab: {fileID: 100100000, guid: cb73086e98a04db4690dd67a730c1fe4, type: 3}
 --- !u!1 &912799647690357195 stripped
 GameObject:
@@ -139,3 +143,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: -90, y: 0, z: 0}
   statue: {fileID: 912799647690357195}
+--- !u!114 &-3205563870220924068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912799647690357195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abbe1ee7d8231d4e8e3826c42730e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
