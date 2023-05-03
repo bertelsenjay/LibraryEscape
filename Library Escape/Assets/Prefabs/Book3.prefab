@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2318759438920103053}
   - component: {fileID: 746857872358285657}
   - component: {fileID: 6764425436600238735}
+  - component: {fileID: -4675680098862905599}
   m_Layer: 0
   m_Name: Book3
   m_TagString: Untagged
@@ -118,3 +119,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e988d4d04cadf46903015b4466d084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4675680098862905599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7675725357659773567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abbe1ee7d8231d4e8e3826c42730e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoSaveDelay: 10
+  timer: 0
