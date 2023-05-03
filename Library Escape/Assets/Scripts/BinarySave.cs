@@ -123,6 +123,41 @@ public class BinarySave : MonoBehaviour
                 gameData.book1Y = transform.position.y;
                 gameData.book1Z = transform.position.z;
             }
+
+            if (gameObject.name.Contains("Book2"))
+            {
+                gameData.book2X = transform.position.x;
+                gameData.book2Y = transform.position.y;
+                gameData.book2Z = transform.position.z;
+            }
+
+            if (gameObject.name.Contains("Book3"))
+            {
+                gameData.book3X = transform.position.x;
+                gameData.book3Y = transform.position.y;
+                gameData.book3Z = transform.position.z;
+            }
+
+            if (gameObject.name.Contains("Book4"))
+            {
+                gameData.book4X = transform.position.x;
+                gameData.book4Y = transform.position.y;
+                gameData.book4Z = transform.position.z;
+            }
+
+            if (gameObject.name.Contains("Book5"))
+            {
+                gameData.book5X = transform.position.x;
+                gameData.book5Y = transform.position.y;
+                gameData.book5Z = transform.position.z;
+            }
+
+            if (gameObject.name.Contains("Book6"))
+            {
+                gameData.book6X = transform.position.x;
+                gameData.book6Y = transform.position.y;
+                gameData.book6Z = transform.position.z;
+            }
             if (FibbonacciPuzzle.thirdPuzzleAnswered == true && FibbonacciPuzzle.firstPuzzleAnswered == true && FibbonacciPuzzle.secondPuzzleAnswered == true)
             {
                 gameData.fibonacciPuzzle = true; 
@@ -272,6 +307,26 @@ public class GameData
     public float book1X;
     public float book1Y;
     public float book1Z;
+
+    public float book2X;
+    public float book2Y;
+    public float book2Z;
+
+    public float book3X;
+    public float book3Y;
+    public float book3Z;
+
+    public float book4X;
+    public float book4Y;
+    public float book4Z;
+
+    public float book5X;
+    public float book5Y;
+    public float book5Z;
+
+    public float book6X;
+    public float book6Y;
+    public float book6Z;
 
     public bool statuePuzzle = false;
     public bool bookPuzzle = false;
