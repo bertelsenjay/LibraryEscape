@@ -43,6 +43,20 @@ public class BinarySave : MonoBehaviour
                 gameData.knightY = transform.position.y;
                 gameData.knightZ = transform.position.z;
             }
+
+            if(gameObject.name.Contains("Pirate"))
+            {
+                gameData.pirateX = transform.position.x;
+                gameData.pirateY = transform.position.y;
+                gameData.pirateZ = transform.position.z; 
+            }
+
+            if(gameObject.name.Contains("Wizard"))
+            {
+                gameData.wizardX = transform.position.x;
+                gameData.wizardY = transform.position.y;
+                gameData.wizardZ = transform.position.z; 
+            }
             WriteFile();
             Debug.Log("Saved");
         }
@@ -68,6 +82,23 @@ public class BinarySave : MonoBehaviour
                 Debug.Log(gameData.gorgonX);
             }
             
+            if (gameObject.name.Contains("Knight"))
+            {
+                Vector3 knightPos = new Vector3(gameData.knightX, gameData.knightY, gameData.knightZ);
+                transform.position = knightPos;
+            }
+
+            if (gameObject.name.Contains("Pirate"))
+            {
+                Vector3 piratePos = new Vector3(gameData.pirateX, gameData.pirateY, gameData.pirateZ);
+                transform.position = piratePos;
+            }
+
+            if (gameObject.name.Contains("Wizard"))
+            {
+                Vector3 wizardPos = new Vector3(gameData.wizardX, gameData.wizardY, gameData.wizardZ);
+                transform.position = wizardPos; 
+            }
         }
     }
 
@@ -121,5 +152,13 @@ public class GameData
 
     public float knightX;
     public float knightY;
-    public float knightZ; 
+    public float knightZ;
+
+    public float pirateX;
+    public float pirateY;
+    public float pirateZ;
+
+    public float wizardX;
+    public float wizardY;
+    public float wizardZ;
 }
