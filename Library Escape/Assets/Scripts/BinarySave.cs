@@ -3,24 +3,82 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using TMPro;
 
 public class BinarySave : MonoBehaviour
 {
+    public static bool holdingItem;
+    public int autoSaveDelay = 10;
+    public float timer = 0;
     // game data to be saved
     GameData gameData;
     // name of file to write to
     string saveFile;
     CharacterController cc;
-
+    
     FileStream dataStream;
 
     BinaryFormatter converter = new BinaryFormatter();
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        timer = timer + 1 * Time.deltaTime;
+        /*if (StatuePuzzle.isHoldingStatueOne)
         {
-            if(gameObject.name == "PlayerCapsule")
+            PlayerPickupDrop.itemName = "Gorgon";
+            Debug.Log("Item Name set");
+            
+        }
+        else if (StatuePuzzle.isHoldingStatueTwo)
+        {
+            PlayerPickupDrop.itemName = "Knight";
+        }
+        else if (StatuePuzzle.isHoldingStatueThree)
+        {
+            PlayerPickupDrop.itemName = "Pirate";
+        }
+        else if (StatuePuzzle.isHoldingStatueFour)
+        {
+            PlayerPickupDrop.itemName = "Wizard";
+        }
+        else if (BurningPuzzle.isHoldingBookOne)
+        {
+            PlayerPickupDrop.itemName = "Book1";
+        }
+        else if (BurningPuzzle.isHoldingBookTwo)
+        {
+            PlayerPickupDrop.itemName = "Book2";
+        }
+        else if (BurningPuzzle.isHoldingBookThree)
+        {
+            PlayerPickupDrop.itemName = "Book3";
+        }
+        else if (BurningPuzzle.isHoldingBookFour)
+        {
+            PlayerPickupDrop.itemName = "Book4";
+        }
+        else if (BurningPuzzle.isHoldingBookFive)
+        {
+            PlayerPickupDrop.itemName = "Book5";
+        }
+        else if (BurningPuzzle.isHoldingBookSix)
+        {
+            PlayerPickupDrop.itemName = "Book6";
+        }
+        else
+        {
+            PlayerPickupDrop.itemName = "Nothing";
+            Debug.Log("Else Activated");
+        }*/
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) || timer >= autoSaveDelay)
+        {
+            /*if (gameObject.name == "CarryText")
+            {
+                
+            }*/
+
+            if (gameObject.name == "PlayerCapsule")
             {
                 gameData.x = transform.position.x;
                 gameData.y = transform.position.y;
@@ -32,6 +90,7 @@ public class BinarySave : MonoBehaviour
                 gameData.gorgonX = transform.position.x;
                 gameData.gorgonY = transform.position.y;
                 gameData.gorgonZ = transform.position.z;
+                if (StatuePuzzle.isHoldingStatueOne)
                 Debug.Log(gameData.gorgonX);
                 Debug.Log(gameData.gorgonY);
                 Debug.Log(gameData.gorgonZ);
@@ -57,13 +116,53 @@ public class BinarySave : MonoBehaviour
                 gameData.wizardY = transform.position.y;
                 gameData.wizardZ = transform.position.z; 
             }
+
+            if(gameObject.name.Contains("Book1"))
+            {
+                gameData.book1X = transform.position.x;
+                gameData.book1Y = transform.position.y;
+                gameData.book1Z = transform.position.z;
+            }
+            if (FibbonacciPuzzle.thirdPuzzleAnswered == true && FibbonacciPuzzle.firstPuzzleAnswered == true && FibbonacciPuzzle.secondPuzzleAnswered == true)
+            {
+                gameData.fibonacciPuzzle = true; 
+            } 
+            if (StatuePuzzle.puzzleComplete == true)
+            {
+                gameData.statuePuzzle = true;
+            }
+            if (BurningPuzzle.puzzleComplete == true)
+            {
+                gameData.bookPuzzle = true;
+            }
             WriteFile();
+            timer = 0;
             Debug.Log("Saved");
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
             ReadFile();
+            
+            if (gameData.fibonacciPuzzle == true)
+            {
+                FibbonacciPuzzle.firstPuzzleAnswered = true;
+                FibbonacciPuzzle.secondPuzzleAnswered = true;
+                FibbonacciPuzzle.thirdPuzzleAnswered = true; 
+            }
+            if (gameData.statuePuzzle == true)
+            {
+                StatuePuzzle.puzzleComplete = true;
+            }
+            if (gameData.bookPuzzle == true)
+            {
+                BurningPuzzle.puzzleComplete = true; 
+            }
+            Debug.Log(FibbonacciPuzzle.firstPuzzleAnswered);
+            Debug.Log(FibbonacciPuzzle.secondPuzzleAnswered);
+            Debug.Log(FibbonacciPuzzle.thirdPuzzleAnswered);
+            Debug.Log(StatuePuzzle.puzzleComplete);
+            Debug.Log(BurningPuzzle.puzzleComplete);
             if (gameObject.name == "PlayerCapsule")
             {
                 cc.enabled = false;
@@ -98,6 +197,12 @@ public class BinarySave : MonoBehaviour
             {
                 Vector3 wizardPos = new Vector3(gameData.wizardX, gameData.wizardY, gameData.wizardZ);
                 transform.position = wizardPos; 
+            }
+
+            if (gameObject.name.Contains("Book1"))
+            {
+                Vector3 book1Pos = new Vector3(gameData.book1X, gameData.book1Y, gameData.book1Z);
+                transform.position = book1Pos; 
             }
         }
     }
@@ -142,6 +247,8 @@ public class BinarySave : MonoBehaviour
 [System.Serializable]
 public class GameData
 {
+    public string itemHolding;
+
     public float x;
     public float y;
     public float z;
@@ -161,4 +268,14 @@ public class GameData
     public float wizardX;
     public float wizardY;
     public float wizardZ;
+
+    public float book1X;
+    public float book1Y;
+    public float book1Z;
+
+    public bool statuePuzzle = false;
+    public bool bookPuzzle = false;
+    public bool fibonacciPuzzle = false;
+    public bool colorPuzzle = false; 
+     
 }

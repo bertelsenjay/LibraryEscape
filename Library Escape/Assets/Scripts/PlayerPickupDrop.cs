@@ -47,6 +47,7 @@ public class PlayerPickupDrop : MonoBehaviour
     public static GameObject statue3Clone;
     public static GameObject statue4Clone;
     public GameObject fibonacciCodeCover;
+    public static string itemName;
     bool twoActive = false;
     bool threeActive = false;
     bool fourActive = false;
@@ -106,8 +107,11 @@ public class PlayerPickupDrop : MonoBehaviour
                         if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueThree == false && StatuePuzzle.isHoldingStatueFour == false && statueGrabbable == true)
                         {
                             Destroy(objectGrabbable.gameObject);
+                            
                             StatuePuzzle.isHoldingStatueOne = true;
-                            carryingText.text = "Carrying:\nGorgon Statue";
+                            carryingText.text = "Carrying:\nGorgon";
+                            //Debug.Log(itemName);
+                            Debug.Log("Name Added");
                             if (StatuePuzzle.statueOnFirst == 1)
                             {
                                 StatuePuzzle.statueOnFirst = 0;
@@ -124,6 +128,7 @@ public class PlayerPickupDrop : MonoBehaviour
                             {
                                 StatuePuzzle.statueOnFourth = 0;
                             }
+                            
                         }
                         
                     }
@@ -133,7 +138,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueTwo = true;
-                            carryingText.text = "Carrying:\nKnight Statue";
+                            carryingText.text = "Carrying:\nKnight";
                             if (StatuePuzzle.statueOnFirst == 2)
                             {
                                 StatuePuzzle.statueOnFirst = 0;
@@ -158,7 +163,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueThree = true;
-                            carryingText.text = "Carrying:\nPirate Statue";
+                            carryingText.text = "Carrying:\nPirate";
                             if (StatuePuzzle.statueOnFirst == 3)
                             {
                                 StatuePuzzle.statueOnFirst = 0;
@@ -183,7 +188,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         {
                             Destroy(objectGrabbable.gameObject);
                             StatuePuzzle.isHoldingStatueFour = true;
-                            carryingText.text = "Carrying:\nWizard Statue";
+                            carryingText.text = "Carrying:\nWizard";
                             if (StatuePuzzle.statueOnFirst == 4)
                             {
                                 StatuePuzzle.statueOnFirst = 0;

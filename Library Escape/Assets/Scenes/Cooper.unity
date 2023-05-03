@@ -7731,6 +7731,7 @@ GameObject:
   - component: {fileID: 1464267745}
   - component: {fileID: 1464267749}
   - component: {fileID: 1464267750}
+  - component: {fileID: 1464267751}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -7841,6 +7842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTimeText: {fileID: 80009587}
+  carryText: {fileID: 1470937879}
 --- !u!114 &1464267750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7856,6 +7858,18 @@ MonoBehaviour:
   bronzeKeyImage: {fileID: 688578821}
   silverKeyImage: {fileID: 1345550435}
   goldKeyImage: {fileID: 1023762924}
+--- !u!114 &1464267751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464267744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abbe1ee7d8231d4e8e3826c42730e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1468144504
 GameObject:
   m_ObjectHideFlags: 0
@@ -8016,6 +8030,7 @@ GameObject:
   - component: {fileID: 1470937881}
   - component: {fileID: 1470937880}
   - component: {fileID: 1470937879}
+  - component: {fileID: 1470937882}
   m_Layer: 5
   m_Name: CarryText
   m_TagString: Untagged
@@ -8142,6 +8157,18 @@ RectTransform:
   m_AnchoredPosition: {x: 384, y: -128}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1470937882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470937878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abbe1ee7d8231d4e8e3826c42730e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1471125941
 GameObject:
   m_ObjectHideFlags: 0
