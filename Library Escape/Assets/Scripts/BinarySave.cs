@@ -158,6 +158,15 @@ public class BinarySave : MonoBehaviour
                 gameData.book6Y = transform.position.y;
                 gameData.book6Z = transform.position.z;
             }
+
+            if (gameObject.name.Contains("Keypad"))
+            {
+                gameData.firstCode = KeyPad.answer1Correct;
+                gameData.secondCode = KeyPad.answer2Correct;
+                gameData.thirdCode = KeyPad.answer3Correct;
+                gameData.fourthCode = KeyPad.answer4Correct;
+                gameData.fifthCode = KeyPad.answer5Correct;
+            }
             if (FibbonacciPuzzle.thirdPuzzleAnswered == true && FibbonacciPuzzle.firstPuzzleAnswered == true && FibbonacciPuzzle.secondPuzzleAnswered == true)
             {
                 gameData.fibonacciPuzzle = true; 
@@ -178,7 +187,12 @@ public class BinarySave : MonoBehaviour
         {
 
             ReadFile();
-            
+
+            KeyPad.answer1Correct = gameData.firstCode;
+            KeyPad.answer2Correct = gameData.secondCode;
+            KeyPad.answer3Correct = gameData.thirdCode;
+            KeyPad.answer4Correct = gameData.fourthCode;
+            KeyPad.answer5Correct = gameData.fifthCode; 
             if (gameData.fibonacciPuzzle == true)
             {
                 FibbonacciPuzzle.firstPuzzleAnswered = true;
@@ -238,6 +252,31 @@ public class BinarySave : MonoBehaviour
             {
                 Vector3 book1Pos = new Vector3(gameData.book1X, gameData.book1Y, gameData.book1Z);
                 transform.position = book1Pos; 
+            }
+            if (gameObject.name.Contains("Book2"))
+            {
+                Vector3 book2Pos = new Vector3(gameData.book2X, gameData.book2Y, gameData.book2Z);
+                transform.position = book2Pos;
+            }
+            if (gameObject.name.Contains("Book3"))
+            {
+                Vector3 book3Pos = new Vector3(gameData.book3X, gameData.book3Y, gameData.book3Z);
+                transform.position = book3Pos;
+            }
+            if (gameObject.name.Contains("Book4"))
+            {
+                Vector3 book4Pos = new Vector3(gameData.book4X, gameData.book4Y, gameData.book4Z);
+                transform.position = book4Pos;
+            }
+            if (gameObject.name.Contains("Book5"))
+            {
+                Vector3 book5Pos = new Vector3(gameData.book5X, gameData.book5Y, gameData.book5Z);
+                transform.position = book5Pos;
+            }
+            if (gameObject.name.Contains("Book6"))
+            {
+                Vector3 book6Pos = new Vector3(gameData.book6X, gameData.book6Y, gameData.book6Z);
+                transform.position = book6Pos;
             }
         }
     }
@@ -331,6 +370,12 @@ public class GameData
     public bool statuePuzzle = false;
     public bool bookPuzzle = false;
     public bool fibonacciPuzzle = false;
-    public bool colorPuzzle = false; 
+    public bool colorPuzzle = false;
+
+    public bool firstCode = false;
+    public bool secondCode = false;
+    public bool thirdCode = false;
+    public bool fourthCode = false;
+    public bool fifthCode = false; 
      
 }

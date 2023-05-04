@@ -11,11 +11,11 @@ public class KeyPad : MonoBehaviour
     public string answer3;
     public string answer4;
     public string answer5;
-    bool answer1Correct = false;
-    bool answer2Correct = false;
-    bool answer3Correct = false;
-    bool answer4Correct = false;
-    bool answer5Correct = false;
+    public static bool answer1Correct = false;
+    public static bool answer2Correct = false;
+    public static bool answer3Correct = false;
+    public static bool answer4Correct = false;
+    public static bool answer5Correct = false;
     // Update is called once per frame
     public void Number(int number)
     {
@@ -28,7 +28,7 @@ public class KeyPad : MonoBehaviour
 
             if (answer1Correct == false)
             {
-                DoorOpen.totalCorrect++;
+                DoorOpen.firstBool = true;
                 Ans.text = "Right!";
                 Invoke("Reset", 1f);
                 answer1Correct = true;
@@ -43,7 +43,7 @@ public class KeyPad : MonoBehaviour
         {
             if (answer2Correct == false)
             {
-                DoorOpen.totalCorrect++;
+                DoorOpen.secondBool = true;
                 Ans.text = "Right!";
                 Invoke("Reset", 1f);
                 answer2Correct = true;
@@ -58,7 +58,7 @@ public class KeyPad : MonoBehaviour
         {
             if (answer3Correct == false)
             {
-                DoorOpen.totalCorrect++;
+                DoorOpen.thirdBool = true;
                 Ans.text = "Right!";
                 Invoke("Reset", 1f);
                 answer3Correct = true;
@@ -73,7 +73,7 @@ public class KeyPad : MonoBehaviour
         {
             if (answer4Correct == false)
             {
-                DoorOpen.totalCorrect++;
+                DoorOpen.fourthBool = true;
                 Ans.text = "Right!";
                 Invoke("Reset", 1f);
                 answer4Correct = true;
@@ -88,7 +88,7 @@ public class KeyPad : MonoBehaviour
         {
             if (answer5Correct == false)
             {
-                DoorOpen.totalCorrect++;
+                DoorOpen.fifthBool = true;
                 Ans.text = "Right!";
                 Invoke("Reset", 1f);
                 answer5Correct = true;
