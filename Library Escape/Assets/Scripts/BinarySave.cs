@@ -8,7 +8,7 @@ using TMPro;
 public class BinarySave : MonoBehaviour
 {
     public static bool holdingItem;
-    public int autoSaveDelay = 10;
+    public int autoSaveDelay = 60;
     public float timer = 0;
     // game data to be saved
     GameData gameData;
