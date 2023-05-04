@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static bool isSaving = false;
     void Start()
     {
         GetComponent<Canvas>().enabled = false;
@@ -25,6 +26,11 @@ public class PauseMenu : MonoBehaviour
                 //unpause game
                 Resume();
             }
+        }
+        if (isSaving == true)
+        {
+            isSaving = false;
+            MainMenu();
         }
     }
     public void PauseGame()

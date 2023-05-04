@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public static bool doLoad;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None; 
     }
 
     // Update is called once per frame
@@ -28,5 +30,11 @@ public class MainMenu : MonoBehaviour
     public void LoadTutorial()
     {
         SceneManager.LoadScene("Tutorial");
+    }
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene("Cooper");
+        doLoad = true;
+        
     }
 }
