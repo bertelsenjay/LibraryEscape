@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public static bool doLoad;
+    public static bool doLoad = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,10 @@ public class MainMenu : MonoBehaviour
     public void LoadLevel()
     {
         SceneManager.LoadScene("Cooper");
-        doLoad = true;
         
+    }
+    public void NewSave()
+    {
+
     }
 }

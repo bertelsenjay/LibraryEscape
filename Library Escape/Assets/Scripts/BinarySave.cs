@@ -19,7 +19,10 @@ public class BinarySave : MonoBehaviour
     FileStream dataStream;
 
     BinaryFormatter converter = new BinaryFormatter();
-
+    private void Start()
+    {
+        LoadFile();
+    }
     void Update()
     {
         timer = timer + 1 * Time.deltaTime;
@@ -78,211 +81,23 @@ public class BinarySave : MonoBehaviour
                 
             }*/
             SaveFile();
-            /*if (gameObject.name == "PlayerCapsule")
-            {
-                gameData.x = transform.position.x;
-                gameData.y = transform.position.y;
-                gameData.z = transform.position.z;
-            }
             
-            if (gameObject.name.Contains("Gorgon")) //== "Gorgon" || gameObject.name == "Gorgon(Clone)")
-            {
-                gameData.gorgonX = transform.position.x;
-                gameData.gorgonY = transform.position.y;
-                gameData.gorgonZ = transform.position.z;
-                if (StatuePuzzle.isHoldingStatueOne)
-                Debug.Log(gameData.gorgonX);
-                Debug.Log(gameData.gorgonY);
-                Debug.Log(gameData.gorgonZ);
-                Debug.Log("gorgon saved");
-            }
-            if (gameObject.name.Contains("Knight"))
-            {
-                gameData.knightX = transform.position.x;
-                gameData.knightY = transform.position.y;
-                gameData.knightZ = transform.position.z;
-            }
 
-            if(gameObject.name.Contains("Pirate"))
-            {
-                gameData.pirateX = transform.position.x;
-                gameData.pirateY = transform.position.y;
-                gameData.pirateZ = transform.position.z; 
-            }
+            
 
-            if(gameObject.name.Contains("Wizard"))
-            {
-                gameData.wizardX = transform.position.x;
-                gameData.wizardY = transform.position.y;
-                gameData.wizardZ = transform.position.z; 
-            }
-
-            if(gameObject.name.Contains("Book1"))
-            {
-                gameData.book1X = transform.position.x;
-                gameData.book1Y = transform.position.y;
-                gameData.book1Z = transform.position.z;
-            }
-
-            if (gameObject.name.Contains("Book2"))
-            {
-                gameData.book2X = transform.position.x;
-                gameData.book2Y = transform.position.y;
-                gameData.book2Z = transform.position.z;
-            }
-
-            if (gameObject.name.Contains("Book3"))
-            {
-                gameData.book3X = transform.position.x;
-                gameData.book3Y = transform.position.y;
-                gameData.book3Z = transform.position.z;
-            }
-
-            if (gameObject.name.Contains("Book4"))
-            {
-                gameData.book4X = transform.position.x;
-                gameData.book4Y = transform.position.y;
-                gameData.book4Z = transform.position.z;
-            }
-
-            if (gameObject.name.Contains("Book5"))
-            {
-                gameData.book5X = transform.position.x;
-                gameData.book5Y = transform.position.y;
-                gameData.book5Z = transform.position.z;
-            }
-
-            if (gameObject.name.Contains("Book6"))
-            {
-                gameData.book6X = transform.position.x;
-                gameData.book6Y = transform.position.y;
-                gameData.book6Z = transform.position.z;
-            }
-
-            if (gameObject.name.Contains("Keypad"))
-            {
-                gameData.firstCode = KeyPad.answer1Correct;
-                gameData.secondCode = KeyPad.answer2Correct;
-                gameData.thirdCode = KeyPad.answer3Correct;
-                gameData.fourthCode = KeyPad.answer4Correct;
-                gameData.fifthCode = KeyPad.answer5Correct;
-            }
-            if (FibbonacciPuzzle.thirdPuzzleAnswered == true && FibbonacciPuzzle.firstPuzzleAnswered == true && FibbonacciPuzzle.secondPuzzleAnswered == true)
-            {
-                gameData.fibonacciPuzzle = true; 
-            } 
-            if (StatuePuzzle.puzzleComplete == true)
-            {
-                gameData.statuePuzzle = true;
-            }
-            if (BurningPuzzle.puzzleComplete == true)
-            {
-                gameData.bookPuzzle = true;
-            }
-            WriteFile();
-            timer = 0;
-            Debug.Log("Saved");*/
+            
         }
         if (MainMenu.doLoad == true)
         {
-            MainMenu.doLoad = false;
-            if (MainMenu.doLoad == false)
-            {
-                Debug.Log("false");
-            }
-            ReadFile();
-            
-            KeyPad.answer1Correct = gameData.firstCode;
-            KeyPad.answer2Correct = gameData.secondCode;
-            KeyPad.answer3Correct = gameData.thirdCode;
-            KeyPad.answer4Correct = gameData.fourthCode;
-            KeyPad.answer5Correct = gameData.fifthCode; 
-            if (gameData.fibonacciPuzzle == true)
-            {
-                FibbonacciPuzzle.firstPuzzleAnswered = true;
-                FibbonacciPuzzle.secondPuzzleAnswered = true;
-                FibbonacciPuzzle.thirdPuzzleAnswered = true; 
-            }
-            if (gameData.statuePuzzle == true)
-            {
-                StatuePuzzle.puzzleComplete = true;
-            }
-            if (gameData.bookPuzzle == true)
-            {
-                BurningPuzzle.puzzleComplete = true; 
-            }
-            Debug.Log(FibbonacciPuzzle.firstPuzzleAnswered);
-            Debug.Log(FibbonacciPuzzle.secondPuzzleAnswered);
-            Debug.Log(FibbonacciPuzzle.thirdPuzzleAnswered);
-            Debug.Log(StatuePuzzle.puzzleComplete);
-            Debug.Log(BurningPuzzle.puzzleComplete);
-            if (gameObject.name == "PlayerCapsule")
-            {
-                cc.enabled = false;
-                Vector3 pos = new Vector3(gameData.x, gameData.y, gameData.z);
-                transform.position = pos;
-                cc.enabled = true;
-            }
             
             
-            Debug.Log("Loaded");
-            if (gameObject.name.Contains("Gorgon")) // || gameObject.name == "Gorgon(Clone)")
-            {
-                Vector3 gorgonPos = new Vector3(gameData.gorgonX, gameData.gorgonY, gameData.gorgonZ);
-                transform.position = gorgonPos;
-                Debug.Log("Gorgon loaded");
-                Debug.Log(gameData.gorgonX);
-            }
             
-            if (gameObject.name.Contains("Knight"))
-            {
-                Vector3 knightPos = new Vector3(gameData.knightX, gameData.knightY, gameData.knightZ);
-                transform.position = knightPos;
-            }
 
-            if (gameObject.name.Contains("Pirate"))
-            {
-                Vector3 piratePos = new Vector3(gameData.pirateX, gameData.pirateY, gameData.pirateZ);
-                transform.position = piratePos;
-            }
-
-            if (gameObject.name.Contains("Wizard"))
-            {
-                Vector3 wizardPos = new Vector3(gameData.wizardX, gameData.wizardY, gameData.wizardZ);
-                transform.position = wizardPos; 
-            }
-
-            if (gameObject.name.Contains("Book1"))
-            {
-                Vector3 book1Pos = new Vector3(gameData.book1X, gameData.book1Y, gameData.book1Z);
-                transform.position = book1Pos; 
-            }
-            if (gameObject.name.Contains("Book2"))
-            {
-                Vector3 book2Pos = new Vector3(gameData.book2X, gameData.book2Y, gameData.book2Z);
-                transform.position = book2Pos;
-            }
-            if (gameObject.name.Contains("Book3"))
-            {
-                Vector3 book3Pos = new Vector3(gameData.book3X, gameData.book3Y, gameData.book3Z);
-                transform.position = book3Pos;
-            }
-            if (gameObject.name.Contains("Book4"))
-            {
-                Vector3 book4Pos = new Vector3(gameData.book4X, gameData.book4Y, gameData.book4Z);
-                transform.position = book4Pos;
-            }
-            if (gameObject.name.Contains("Book5"))
-            {
-                Vector3 book5Pos = new Vector3(gameData.book5X, gameData.book5Y, gameData.book5Z);
-                transform.position = book5Pos;
-            }
-            if (gameObject.name.Contains("Book6"))
-            {
-                Vector3 book6Pos = new Vector3(gameData.book6X, gameData.book6Y, gameData.book6Z);
-                transform.position = book6Pos;
-            }
             
+            
+
+            
+
         }
         
     }
@@ -434,10 +249,111 @@ public class BinarySave : MonoBehaviour
         timer = 0;
         Debug.Log("Saved");
     }
+    public void LoadFile()
+    {
+        Debug.Log("has ran at least 1 time");
+        ReadFile();
+
+        KeyPad.answer1Correct = gameData.firstCode;
+        KeyPad.answer2Correct = gameData.secondCode;
+        KeyPad.answer3Correct = gameData.thirdCode;
+        KeyPad.answer4Correct = gameData.fourthCode;
+        KeyPad.answer5Correct = gameData.fifthCode;
+        if (gameData.fibonacciPuzzle == true)
+        {
+            FibbonacciPuzzle.firstPuzzleAnswered = true;
+            FibbonacciPuzzle.secondPuzzleAnswered = true;
+            FibbonacciPuzzle.thirdPuzzleAnswered = true;
+        }
+        if (gameData.statuePuzzle == true)
+        {
+            StatuePuzzle.puzzleComplete = true;
+        }
+        if (gameData.bookPuzzle == true)
+        {
+            BurningPuzzle.puzzleComplete = true;
+        }
+        Debug.Log(FibbonacciPuzzle.firstPuzzleAnswered);
+        Debug.Log(FibbonacciPuzzle.secondPuzzleAnswered);
+        Debug.Log(FibbonacciPuzzle.thirdPuzzleAnswered);
+        Debug.Log(StatuePuzzle.puzzleComplete);
+        Debug.Log(BurningPuzzle.puzzleComplete);
+        if (gameObject.name == "PlayerCapsule")
+        {
+            cc.enabled = false;
+            Vector3 pos = new Vector3(gameData.x, gameData.y, gameData.z);
+            transform.position = pos;
+            cc.enabled = true;
+        }
+
+
+        Debug.Log("Loaded");
+
+        if (gameObject.name.Contains("Gorgon")) // || gameObject.name == "Gorgon(Clone)")
+        {
+            Vector3 gorgonPos = new Vector3(gameData.gorgonX, gameData.gorgonY, gameData.gorgonZ);
+            transform.position = gorgonPos;
+            Debug.Log("Gorgon loaded");
+            Debug.Log(gameData.gorgonX);
+        }
+
+        if (gameObject.name.Contains("Knight"))
+        {
+            Vector3 knightPos = new Vector3(gameData.knightX, gameData.knightY, gameData.knightZ);
+            transform.position = knightPos;
+        }
+
+        if (gameObject.name.Contains("Pirate"))
+        {
+            Vector3 piratePos = new Vector3(gameData.pirateX, gameData.pirateY, gameData.pirateZ);
+            transform.position = piratePos;
+        }
+
+        if (gameObject.name.Contains("Wizard"))
+        {
+            Vector3 wizardPos = new Vector3(gameData.wizardX, gameData.wizardY, gameData.wizardZ);
+            transform.position = wizardPos;
+        }
+
+        if (gameObject.name.Contains("Book1"))
+        {
+            Vector3 book1Pos = new Vector3(gameData.book1X, gameData.book1Y, gameData.book1Z);
+            transform.position = book1Pos;
+        }
+        if (gameObject.name.Contains("Book2"))
+        {
+            Vector3 book2Pos = new Vector3(gameData.book2X, gameData.book2Y, gameData.book2Z);
+            transform.position = book2Pos;
+        }
+        if (gameObject.name.Contains("Book3"))
+        {
+            Vector3 book3Pos = new Vector3(gameData.book3X, gameData.book3Y, gameData.book3Z);
+            transform.position = book3Pos;
+        }
+        if (gameObject.name.Contains("Book4"))
+        {
+            Vector3 book4Pos = new Vector3(gameData.book4X, gameData.book4Y, gameData.book4Z);
+            transform.position = book4Pos;
+        }
+        if (gameObject.name.Contains("Book5"))
+        {
+            Vector3 book5Pos = new Vector3(gameData.book5X, gameData.book5Y, gameData.book5Z);
+            transform.position = book5Pos;
+        }
+        if (gameObject.name.Contains("Book6"))
+        {
+            Vector3 book6Pos = new Vector3(gameData.book6X, gameData.book6Y, gameData.book6Z);
+            transform.position = book6Pos;
+        }
+    }
     public void SaveAndQuit()
     {
         SaveFile();
         PauseMenu.isSaving = true;
+    }
+    public void NewSave()
+    {
+
     }
 }
 
