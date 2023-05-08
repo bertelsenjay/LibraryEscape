@@ -11,6 +11,7 @@ public class BinarySave : MonoBehaviour
     public static bool holdingItem;
     public int autoSaveDelay = 60;
     public float timer = 0;
+    public static bool isMainMenu; 
     // game data to be saved
     GameData gameData;
     // name of file to write to
@@ -22,8 +23,13 @@ public class BinarySave : MonoBehaviour
     BinaryFormatter converter = new BinaryFormatter();
     private void Start()
     {
-        LoadFile();
+        if (isMainMenu == false)
+        {
+            LoadFile();
+        }
+        
         Debug.Log(StatuePuzzle.puzzleComplete);
+
         
     }
     void Update()
@@ -160,7 +166,7 @@ public class BinarySave : MonoBehaviour
             gameData.gorgonY = transform.position.y;
             gameData.gorgonZ = transform.position.z;
             //if (StatuePuzzle.isHoldingStatueOne)
-                Debug.Log(gameData.gorgonX);
+            Debug.Log(gameData.gorgonX);
             Debug.Log(gameData.gorgonY);
             Debug.Log(gameData.gorgonZ);
             Debug.Log("gorgon saved");
@@ -254,6 +260,7 @@ public class BinarySave : MonoBehaviour
     }
     public void LoadFile()
     {
+        
         Debug.Log("has ran at least 1 time");
         ReadFile();
 
@@ -348,6 +355,7 @@ public class BinarySave : MonoBehaviour
             Vector3 book6Pos = new Vector3(gameData.book6X, gameData.book6Y, gameData.book6Z);
             transform.position = book6Pos;
         }
+        
     }
     public void SaveAndQuit()
     {
@@ -356,9 +364,10 @@ public class BinarySave : MonoBehaviour
     }
     public void NewSave()
     {
-        SceneManager.LoadScene("Cooper");
+        
         if (File.Exists(saveFile))
         {
+            Debug.Log("Deleted");
             File.Delete(saveFile);
             gameData.statuePuzzle = false; 
             gameData.bookPuzzle = false;
@@ -368,20 +377,26 @@ public class BinarySave : MonoBehaviour
             StatuePuzzle.statueOnSecond = 0;
             StatuePuzzle.statueOnThird = 0;
             StatuePuzzle.statueOnFourth = 0;
-            WriteFile();
+            SaveFile();
             LoadFile();
         }
         else
         {
+            SaveFile();
+            Debug.Log("Created");
             gameData.statuePuzzle = false;
             gameData.bookPuzzle = false;
             gameData.fibonacciPuzzle = false;
             gameData.colorPuzzle = false;
-            WriteFile();
+            StatuePuzzle.statueOnFirst = 0;
+            StatuePuzzle.statueOnSecond = 0;
+            StatuePuzzle.statueOnThird = 0;
+            StatuePuzzle.statueOnFourth = 0;
+            
             
             
         }
-        
+        SceneManager.LoadScene("Cooper");
     }
 }
 
