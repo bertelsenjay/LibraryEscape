@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
@@ -22,6 +23,8 @@ public class BinarySave : MonoBehaviour
     private void Start()
     {
         LoadFile();
+        Debug.Log(StatuePuzzle.puzzleComplete);
+        
     }
     void Update()
     {
@@ -353,7 +356,32 @@ public class BinarySave : MonoBehaviour
     }
     public void NewSave()
     {
-
+        SceneManager.LoadScene("Cooper");
+        if (File.Exists(saveFile))
+        {
+            File.Delete(saveFile);
+            gameData.statuePuzzle = false; 
+            gameData.bookPuzzle = false;
+            gameData.fibonacciPuzzle = false;
+            gameData.colorPuzzle = false;
+            StatuePuzzle.statueOnFirst = 0;
+            StatuePuzzle.statueOnSecond = 0;
+            StatuePuzzle.statueOnThird = 0;
+            StatuePuzzle.statueOnFourth = 0;
+            WriteFile();
+            LoadFile();
+        }
+        else
+        {
+            gameData.statuePuzzle = false;
+            gameData.bookPuzzle = false;
+            gameData.fibonacciPuzzle = false;
+            gameData.colorPuzzle = false;
+            WriteFile();
+            
+            
+        }
+        
     }
 }
 

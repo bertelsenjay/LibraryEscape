@@ -64,6 +64,7 @@ public class PlayerPickupDrop : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         Instantiate(bookBurn1, book1Trans.position, Quaternion.identity);
         Instantiate(bookBurn2, book2Trans.position, Quaternion.identity);
         Instantiate(bookBurn3, book3Trans.position, Quaternion.identity);
