@@ -160,16 +160,12 @@ public class BinarySave : MonoBehaviour
             gameData.z = transform.position.z;
         }
 
-        if (gameObject.name.Contains("Gorgon")) //== "Gorgon" || gameObject.name == "Gorgon(Clone)")
+        if (gameObject.name.Contains("Gorgon"))
         {
             gameData.gorgonX = transform.position.x;
             gameData.gorgonY = transform.position.y;
             gameData.gorgonZ = transform.position.z;
-            //if (StatuePuzzle.isHoldingStatueOne)
-            Debug.Log(gameData.gorgonX);
-            Debug.Log(gameData.gorgonY);
-            Debug.Log(gameData.gorgonZ);
-            Debug.Log("gorgon saved");
+            
         }
         if (gameObject.name.Contains("Knight"))
         {
