@@ -36,8 +36,5 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Cooper");
         
     }
-    public void NewSave()
-    {
-
-    }
+    
 }
