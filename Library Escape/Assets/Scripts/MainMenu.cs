@@ -10,7 +10,8 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None; 
+        Cursor.lockState = CursorLockMode.None;
+        BinarySave.isMainMenu = true; 
     }
 
     // Update is called once per frame
