@@ -58,7 +58,7 @@ public class PlayerPickupDrop : MonoBehaviour
     public int totalNumber = 0;
     bool isMultiply; 
     int booksPlaced = 0;
-    public static bool statueFail;
+    public static bool statueFail; 
     
     
     // Start is called before the first frame update
@@ -83,7 +83,7 @@ public class PlayerPickupDrop : MonoBehaviour
                 if (raycastHit.transform.TryGetComponent(out ObjectGrabbable objectGrabbable))
                 {
                     
-                    if (objectGrabbable.name == "Door")
+                    if (objectGrabbable.name == "DoorWButtons")
                     {
                         KeypadCanvas.keypadEnabled = true;
                         
@@ -266,7 +266,7 @@ public class PlayerPickupDrop : MonoBehaviour
                 
                 else if (raycastHit.transform.TryGetComponent(out ObjectReadable objectReadable))
                 {
-                    if (objectReadable.name == "BookRead")
+                    if (objectReadable.name == "howtoread")
                     {
                         Time.timeScale = 0;
                         BookUI.isBook = true;
