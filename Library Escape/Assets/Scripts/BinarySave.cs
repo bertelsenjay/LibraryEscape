@@ -21,7 +21,7 @@ public class BinarySave : MonoBehaviour
     FileStream dataStream;
 
     BinaryFormatter converter = new BinaryFormatter();
-    private void Start()
+    void Start()
     {
         if (isMainMenu == false)
         {
@@ -83,30 +83,22 @@ public class BinarySave : MonoBehaviour
             Debug.Log("Else Activated");
         }*/
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) || timer >= autoSaveDelay)
+        if (  timer >= autoSaveDelay)
         {
             /*if (gameObject.name == "CarryText")
             {
                 
             }*/
             SaveFile();
-            
+        }
 
-            
-
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            LoadFile();
             
         }
         if (MainMenu.doLoad == true)
         {
-            
-            
-            
-
-            
-            
-
-            
-
         }
         
     }
@@ -295,7 +287,7 @@ public class BinarySave : MonoBehaviour
 
         Debug.Log("Loaded");
 
-        if (gameObject.name.Contains("Gorgon")) // || gameObject.name == "Gorgon(Clone)")
+        if (gameObject.name.Contains("Gorgon")) 
         {
             Vector3 gorgonPos = new Vector3(gameData.gorgonX, gameData.gorgonY, gameData.gorgonZ);
             transform.position = gorgonPos;
@@ -360,7 +352,7 @@ public class BinarySave : MonoBehaviour
     }
     public void NewSave()
     {
-        
+        Debug.Log("New Save Run");
         if (File.Exists(saveFile))
         {
             Debug.Log("Deleted");
@@ -373,12 +365,14 @@ public class BinarySave : MonoBehaviour
             StatuePuzzle.statueOnSecond = 0;
             StatuePuzzle.statueOnThird = 0;
             StatuePuzzle.statueOnFourth = 0;
+            
             SaveFile();
             LoadFile();
         }
         else
         {
             SaveFile();
+            LoadFile();
             Debug.Log("Created");
             gameData.statuePuzzle = false;
             gameData.bookPuzzle = false;
