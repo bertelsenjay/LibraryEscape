@@ -274,13 +274,13 @@ public class PlayerPickupDrop : MonoBehaviour
                         
                         
                     }
-                    else if (objectReadable.name == "BookRead2")
+                    else if (objectReadable.name == "bannedbooks")
                     {
                         Time.timeScale = 0;
                         BookUI.isBook = true;
                         BookUI.bookTwoOpen = true;
                     }
-                    else if (objectReadable.name == "BookRead3")
+                    else if (objectReadable.name == "fibonacci")
                     {
                         Time.timeScale = 0;
                         BookUI.isBook = true;
