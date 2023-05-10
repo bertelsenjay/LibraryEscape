@@ -37,5 +37,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Library");
         
     }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     
 }
