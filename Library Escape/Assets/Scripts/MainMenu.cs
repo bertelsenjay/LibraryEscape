@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
     }
     public void LoadLevel()
     {
-        SceneManager.LoadScene("Cooper");
+        SceneManager.LoadScene("Library");
         
     }
     
