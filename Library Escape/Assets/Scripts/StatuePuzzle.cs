@@ -23,7 +23,11 @@ public class StatuePuzzle : MonoBehaviour
     public static bool secondCorrect = false;
     public static bool thirdCorrect = false;
     public static bool fourthCorrect = false;*/
-
+    void Start()
+    {
+        Debug.Log(puzzleComplete);
+        puzzleComplete = false;
+    }
 
     // Update is called once per frame
     void Update()

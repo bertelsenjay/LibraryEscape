@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorOpen : MonoBehaviour
 {
@@ -39,6 +40,10 @@ public class DoorOpen : MonoBehaviour
         {
             //Give Completion Bonus
         }*/
+        if (totalCorrect >= 3)
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
         if (firstBool)
         {
             firstInt = 1;

@@ -65,6 +65,7 @@ public class PlayerPickupDrop : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log(statueGrabbable);
         /*Instantiate(bookBurn1, book1Trans.position, Quaternion.identity);
         Instantiate(bookBurn2, book2Trans.position, Quaternion.identity);
         Instantiate(bookBurn3, book3Trans.position, Quaternion.identity);
@@ -79,12 +80,12 @@ public class PlayerPickupDrop : MonoBehaviour
         {
             if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickupDistance, pickupLayerMask))
             {
-              
                 if (raycastHit.transform.TryGetComponent(out ObjectGrabbable objectGrabbable))
                 {
                     
                     if (objectGrabbable.name == "DoorWButtons")
                     {
+                
                         KeypadCanvas.keypadEnabled = true;
                         
                     }
@@ -185,6 +186,7 @@ public class PlayerPickupDrop : MonoBehaviour
                     }
                     else if (objectGrabbable.name == "Wizard" || objectGrabbable.name == "Wizard(Clone)" && StatuePuzzle.puzzleComplete == false && statueGrabbable == true)
                     {
+                        
                         if (StatuePuzzle.isHoldingStatueTwo == false && StatuePuzzle.isHoldingStatueOne == false && StatuePuzzle.isHoldingStatueThree == false)
                         {
                             Destroy(objectGrabbable.gameObject);
