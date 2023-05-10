@@ -208,58 +208,58 @@ public class PlayerPickupDrop : MonoBehaviour
                             }
                         }
                     }
-                    else if (objectGrabbable.name == "Book1" || objectGrabbable.name == "Book1(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "spiderfarm" || objectGrabbable.name == "spiderfarm(Clone)" && BurningPuzzle.puzzleComplete == false)
                     {
                         if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookOne = true;
-                            carryingText.text = "Carrying:\nBook1";
+                            carryingText.text = "Carrying:\nspiderfarm";
                         }
                     }
-                    else if (objectGrabbable.name == "Book2" || objectGrabbable.name == "Book2(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "funeralpyre" || objectGrabbable.name == "funeralpyre(Clone)" && BurningPuzzle.puzzleComplete == false)
                     {
                         if (BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookTwo = true;
-                            carryingText.text = "Carrying:\nBook2";
+                            carryingText.text = "Carrying:\nfuneralpyre";
                         }
                     }
-                    else if (objectGrabbable.name == "Book3" || objectGrabbable.name == "Book3(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "falter" || objectGrabbable.name == "falter(Clone)" && BurningPuzzle.puzzleComplete == false)
                     {
                         if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookThree = true;
-                            carryingText.text = "Carrying:\nBook3";
+                            carryingText.text = "Carrying:\nfalter";
                         }
                     }
-                    else if (objectGrabbable.name == "Book4" || objectGrabbable.name == "Book4(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "farenheit" || objectGrabbable.name == "farenheit(Clone)" && BurningPuzzle.puzzleComplete == false)
                     {
                         if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookFour = true;
-                            carryingText.text = "Carrying:\nBook4";
+                            carryingText.text = "Carrying:\nfahrenheit";
                         }
                     }
-                    else if (objectGrabbable.name == "Book5" || objectGrabbable.name == "Book5(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "birdfishcage" || objectGrabbable.name == "Book5(Clone)" && BurningPuzzle.puzzleComplete == false)
                     {
                         if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookSix == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookFive = true;
-                            carryingText.text = "Carrying:\nBook5";
+                            carryingText.text = "Carrying:\nbirdfishcage";
                         }
                     }
-                    else if (objectGrabbable.name == "Book6" || objectGrabbable.name == "Book6(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "1948" || objectGrabbable.name == "1948(Clone)" && BurningPuzzle.puzzleComplete == false)
                     {
                         if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookOne == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookSix = true;
-                            carryingText.text = "Carrying:\nBook6";
+                            carryingText.text = "Carrying:\n1948";
                         }
                     }
                 }
@@ -274,13 +274,13 @@ public class PlayerPickupDrop : MonoBehaviour
                         
                         
                     }
-                    else if (objectReadable.name == "BookRead2")
+                    else if (objectReadable.name == "bannedbooks")
                     {
                         Time.timeScale = 0;
                         BookUI.isBook = true;
                         BookUI.bookTwoOpen = true;
                     }
-                    else if (objectReadable.name == "BookRead3")
+                    else if (objectReadable.name == "fibonacci")
                     {
                         Time.timeScale = 0;
                         BookUI.isBook = true;

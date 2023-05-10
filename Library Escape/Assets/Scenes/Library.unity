@@ -2258,6 +2258,34 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 286027321}
   m_SourcePrefab: {fileID: 100100000, guid: 6aacb8df6db9e9e40b99a8066587cbd1, type: 3}
+--- !u!1 &130642736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf3c3052b2aeeb4989b92720e62ec02,
+    type: 3}
+  m_PrefabInstance: {fileID: 1642501192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &130642737
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130642736}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &131583409 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ddaf03d37ba7a142b24b76ca1c4b53c,
@@ -3519,7 +3547,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38678
+  m_Name: pb_Mesh40664
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -5643,7 +5671,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38204
+  m_Name: pb_Mesh40166
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6830,7 +6858,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37232
+  m_Name: pb_Mesh39096
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -8036,6 +8064,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1768871803}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a4c4252ca76693c489bb350ee7172940,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1768871804}
   m_SourcePrefab: {fileID: 100100000, guid: a4c4252ca76693c489bb350ee7172940, type: 3}
 --- !u!1 &545888626 stripped
 GameObject:
@@ -8283,7 +8315,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh276542
+  m_Name: pb_Mesh40616
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -11111,7 +11143,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh276666
+  m_Name: pb_Mesh40746
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -12269,10 +12301,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookText: {fileID: 2072341853}
-  bookOneText: Book one testing text
-  bookTwoText: Long testing text for the book two, it is so that we can see how the
-    text behaves when there is a lot
-  bookThreeText: book 3
+  bookOneText: "Press E while looking at a book to read it! Granted you probably
+    already know this, because that\u2019s how you opened this book. So, instead,
+    here\u2019s some tips! \u2026Books with a red bookmark can be read! \u2026Books
+    might give you some useful information! \u2026Books make great kindling! "
+  bookTwoText: "The delicate topic of banning books has been a source of contention
+    since books have been mainstream.  Many books have been banned, and even burned.
+    In education, books may be banned for violent or contentious content that may
+    be deemed not fit for children. However, they still exist in places like public
+    libraries. Maybe you can find one in the very library you\u2019re in? "
+  bookThreeText: 'The Fibonacci Sequence is a set of numbers, or a sequence, in which
+    each number is the sum of the two numbers before it. For example: 1, 1, 2, 3!
+    One and one is added for two, and then two and one are added for three. Can you
+    guess which one comes next? '
   bookFourText: book 4
   bookFiveText: book 5
   bookSixText: book 6
@@ -12818,18 +12859,12 @@ MonoBehaviour:
   statue2: {fileID: 1136663978796884515, guid: e9b44e887db3f7f42ad095b2f788490c, type: 3}
   statue3: {fileID: 8123447538113237254, guid: f7b7d375ff0ab7c4088fc44798509e64, type: 3}
   statue4: {fileID: 912799647690357195, guid: 8b4717cae88474548894249fd0e6ed57, type: 3}
-  bookBurn1: {fileID: 8180522317310316105, guid: 9037b4036e86363429caf002835b2670,
-    type: 3}
-  bookBurn2: {fileID: 2147708407207156835, guid: 1ef07666399d89f4d85e5326b94b4f6d,
-    type: 3}
-  bookBurn3: {fileID: 7675725357659773567, guid: f57437a5d95b1d84ca7d9d7f43c15b57,
-    type: 3}
-  bookBurn4: {fileID: 3925310391916105569, guid: edddd07b4cc189a48a53f6fd725193bb,
-    type: 3}
-  bookBurn5: {fileID: 7127384911429889902, guid: a0441244f7e1ede42999b0f2a72b6ee8,
-    type: 3}
-  bookBurn6: {fileID: 439001691904653956, guid: 0296654111c154242af93c665c2199c4,
-    type: 3}
+  bookBurn1: {fileID: 392105590}
+  bookBurn2: {fileID: 525055980}
+  bookBurn3: {fileID: 545888626}
+  bookBurn4: {fileID: 1730460496}
+  bookBurn5: {fileID: 2020482629}
+  bookBurn6: {fileID: 600020952}
   book1Trans: {fileID: 600020955}
   book2Trans: {fileID: 2020482632}
   book3Trans: {fileID: 1730460499}
@@ -13406,7 +13441,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh276328
+  m_Name: pb_Mesh40398
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -15053,7 +15088,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh276420
+  m_Name: pb_Mesh40490
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -20389,7 +20424,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37472
+  m_Name: pb_Mesh39340
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -26159,7 +26194,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cf3c3052b2aeeb4989b92720e62ec02,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 130642737}
   m_SourcePrefab: {fileID: 100100000, guid: 1cf3c3052b2aeeb4989b92720e62ec02, type: 3}
 --- !u!1001 &1650417160
 PrefabInstance:
@@ -26808,7 +26847,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh276816
+  m_Name: pb_Mesh40900
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -27050,7 +27089,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh276140
+  m_Name: pb_Mesh40194
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -28035,7 +28074,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38126
+  m_Name: pb_Mesh40048
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -28394,6 +28433,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd7b8e86c4419b48b55d8b7c326a517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &1768871804
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768871799}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8385836491182413749, guid: a4c4252ca76693c489bb350ee7172940, type: 3}
 --- !u!1001 &1770094034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28587,7 +28648,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh276744
+  m_Name: pb_Mesh40828
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -29765,7 +29826,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh275246
+  m_Name: pb_Mesh39202
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -31324,7 +31385,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh62786
+  m_Name: pb_Mesh39418
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -33908,7 +33969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ans: {fileID: 993452384}
-  answer1: 1234
+  answer1: 5579
   answer2: 1111
   answer3: 2222
   answer4: 
@@ -34055,7 +34116,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh276842
+  m_Name: pb_Mesh40926
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
