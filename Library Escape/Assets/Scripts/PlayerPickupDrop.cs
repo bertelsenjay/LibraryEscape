@@ -65,12 +65,12 @@ public class PlayerPickupDrop : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Instantiate(bookBurn1, book1Trans.position, Quaternion.identity);
+        /*Instantiate(bookBurn1, book1Trans.position, Quaternion.identity);
         Instantiate(bookBurn2, book2Trans.position, Quaternion.identity);
         Instantiate(bookBurn3, book3Trans.position, Quaternion.identity);
         Instantiate(bookBurn4, book4Trans.position, Quaternion.identity);
         Instantiate(bookBurn5, book5Trans.position, Quaternion.identity);
-        Instantiate(bookBurn6, book6Trans.position, Quaternion.identity);
+        Instantiate(bookBurn6, book6Trans.position, Quaternion.identity);*/
     }
     
     private void Update()
@@ -226,25 +226,25 @@ public class PlayerPickupDrop : MonoBehaviour
                             carryingText.text = "Carrying:\nfuneralpyre";
                         }
                     }
-                    else if (objectGrabbable.name == "falter" || objectGrabbable.name == "falter(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "fahrenheit" || objectGrabbable.name == "fahrenheit(Clone)" && BurningPuzzle.puzzleComplete == false)
                     {
                         if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookThree = true;
-                            carryingText.text = "Carrying:\nfalter";
+                            carryingText.text = "Carrying:\nfahrenheit";
                         }
                     }
-                    else if (objectGrabbable.name == "farenheit" || objectGrabbable.name == "farenheit(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "falter" || objectGrabbable.name == "falter(Clone)" && BurningPuzzle.puzzleComplete == false)
                     {
                         if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookFive == false && BurningPuzzle.isHoldingBookSix == false)
                         {
                             Destroy(objectGrabbable.gameObject);
                             BurningPuzzle.isHoldingBookFour = true;
-                            carryingText.text = "Carrying:\nfahrenheit";
+                            carryingText.text = "Carrying:\nfalter";
                         }
                     }
-                    else if (objectGrabbable.name == "birdfishcage" || objectGrabbable.name == "Book5(Clone)" && BurningPuzzle.puzzleComplete == false)
+                    else if (objectGrabbable.name == "birdfishcage" || objectGrabbable.name == "birdfishcage(Clone)" && BurningPuzzle.puzzleComplete == false)
                     {
                         if (BurningPuzzle.isHoldingBookTwo == false && BurningPuzzle.isHoldingBookThree == false && BurningPuzzle.isHoldingBookFour == false && BurningPuzzle.isHoldingBookOne == false && BurningPuzzle.isHoldingBookSix == false)
                         {
@@ -280,7 +280,7 @@ public class PlayerPickupDrop : MonoBehaviour
                         BookUI.isBook = true;
                         BookUI.bookTwoOpen = true;
                     }
-                    else if (objectReadable.name == "fibonacci")
+                    else if (objectReadable.name == "fibonaccisequence")
                     {
                         Time.timeScale = 0;
                         BookUI.isBook = true;
@@ -546,7 +546,7 @@ public class PlayerPickupDrop : MonoBehaviour
                     else if (objectPlaceable.name == "Fireplace" && BurningPuzzle.puzzleComplete == false)
                     {
                         
-                        if (booksPlaced < 3)
+                        if (booksPlaced < 2)
                         {
                             if(BurningPuzzle.isHoldingBookOne == true)
                             {
@@ -599,10 +599,10 @@ public class PlayerPickupDrop : MonoBehaviour
                         }
                         
                     }
-                    if (booksPlaced >= 3)
+                    if (booksPlaced >= 2)
                     {
                         //Checks if it is the correct books
-                        if (BurningPuzzle.isBookOnePlaced == true && BurningPuzzle.isBookTwoPlaced == true && BurningPuzzle.isBookThreePlaced == true && BurningPuzzle.puzzleComplete == false)
+                        if (BurningPuzzle.isBookThreePlaced == true && BurningPuzzle.isBookSixPlaced == true && BurningPuzzle.puzzleComplete == false)
                         {
                             Debug.Log("Puzzle Completed!");
                             Destroy(bookBurn4);
